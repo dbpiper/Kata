@@ -1,0 +1,26 @@
+ 0: Lamps
+ 1: Candles
+ 2: Figurines/dolls
+ 3: Mirrors
+ 4: Whiteboards/Chalkboards
+ 5: Artwork
+ 6: Posters
+ 7: Book shelves
+ 8: Desks/Tables
+ 9: Chairs
+10: Foot rests
+11: Beds
+12: Toilet
+13: Sink
+14: Clothes hamper
+15: Couch
+16: Piano
+17: Storage tub
+18: Stool
+19: Bathtub/shower
+20: Clock
+21: Photographs
+22: Mailbox
+23: Rug
+24: Chess board
+25: Swing
