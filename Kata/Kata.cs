@@ -41,11 +41,12 @@ namespace Kata {
         private void comboBoxLesson_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
-           
+         
+        // generate a random number from 0 to max, inclusive that is [0, max]
         private int RandomNumber(int max)
         {
             Random rng = new Random();
-            return rng.Next(0, max);
+            return rng.Next(0, max + 1);
         }
 
         private int SelectLessonNum(dynamic katas) {
