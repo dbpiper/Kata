@@ -12,6 +12,14 @@ using System.Windows.Forms;
 
 namespace Kata {
     public partial class Kata : Form {
+
+        enum KataTypes : byte {
+            Drawabox,
+            Music
+        };
+
+
+
         public Kata() {
             InitializeComponent();
         }
@@ -35,7 +43,9 @@ namespace Kata {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            PopulateList("Configuration\\JSON\\DrawaboxKatas.json");
+
+            //comboBoxKataType.DropDownStyle = ComboBoxStyle.DropDownList;
+            //comboBoxLesson.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void comboBoxLesson_SelectedIndexChanged(object sender, EventArgs e) {
@@ -70,8 +80,8 @@ namespace Kata {
             int subExerciseNum = RandomNumber(exerciseCount - 1);
             return everydayObjectGroup.Content[subExerciseNum]; 
         }
-
-        private void buttonRandomSelect_Click(object sender, EventArgs e) {
+        
+        private void pickDrawaboxExerciseRandomly() {
             string kataFile = "Configuration\\JSON\\DrawaboxKatas.json";
             dynamic katas = LoadJson(kataFile);
 
@@ -102,6 +112,66 @@ namespace Kata {
             string message = messageExercise + messageSubexercise;
 
             labelResult.Text = message;
+        }
+
+        private void pickMusicExerciseRandomly() {
+            string musicKataFile = "Configuration\\JSON\\Music.json";
+            dynamic musicKatas = LoadJson(musicKataFile);
+
+            int bpmIndex = RandomNumber(musicKatas.BPM.Count - 1);
+            int bpm = musicKatas.BPM[bpmIndex];
+
+            int keyIndex = RandomNumber(musicKatas.Key.Count - 1);
+            string key = musicKatas.Key[keyIndex];
+
+            string message = string.Format("BPM - {0}\nKey - {1}", bpm, key);
+
+            labelResult.Text = message;
+        }
+
+        private void buttonRandomSelect_Click(object sender, EventArgs e) {
+            switch (comboBoxKataType.SelectedIndex) {
+            case (byte)KataTypes.Drawabox:
+                pickDrawaboxExerciseRandomly();
+                break;
+            case (byte)KataTypes.Music:
+                pickMusicExerciseRandomly();
+                break;
+            default:
+                labelResult.Text = "Cannot select Kata: No Kata Type selected yet. Please select a Kata Type from the dropdown above.";
+                break;
+                
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+
+        }
+
+        private void labelResult_Click(object sender, EventArgs e) {
+
+        }
+
+        private void comboBoxKataType_SelectedIndexChanged(object sender, EventArgs e) {
+            if (comboBoxKataType.SelectedIndex == (byte)KataTypes.Music) {
+                comboBoxLesson.Visible = false;
+            } else {
+                comboBoxLesson.Visible = true;
+                PopulateList("Configuration\\JSON\\DrawaboxKatas.json");
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e) {
+            comboBoxKataType.ResetText();
+            comboBoxKataType.SelectedIndex = -1;
+            comboBoxKataType.Text = "Kata Type";
+
+            comboBoxLesson.ResetText();
+            comboBoxLesson.SelectedIndex = -1;
+            comboBoxLesson.Text = "Only Choose From Specific Lesson";
+
+            labelResult.ResetText();
+            labelResult.Text = "Selected Kata";
         }
     }
 }
