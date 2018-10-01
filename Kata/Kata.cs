@@ -71,13 +71,16 @@ namespace Kata {
             try {
                 fs = new FileStream("Configuration\\selections.txt", FileMode.Create);
                 using (StreamWriter writer = new StreamWriter(fs)) {
-                    writer.WriteLine(saveSelections.Dequeue().ToString());
+                    while(saveSelections.Count > 0) {
+                        writer.WriteLine(saveSelections.Dequeue().ToString());
+                    }
                 }
             } finally {
                 if (fs != null) {
                     fs.Dispose();
                 }
             }
+            MessageBox.Show("Partial taxonomy selected for species sub-exercies, please enter more information to continue and press \"Resume Selection\" to continue.");
             buttonResume.Visible = true;
             ResetQueues();
         }
@@ -86,12 +89,14 @@ namespace Kata {
         {
             ResetQueues();
             using (StreamReader reader = new StreamReader("Configuration\\selections.txt")) {
-                string line = reader.ReadLine();
-                int lineValue = 0;
-                if (!Int32.TryParse(line, out lineValue)) {
-                    resumeSelections.Enqueue(lineValue);
-                } else {
-                    throw new Exception("Error parsing line from selections.txt!");
+                string line = "";
+                while((line = reader.ReadLine()) != null) {
+                    int lineValue = 0;
+                    if (Int32.TryParse(line, out lineValue)) {
+                        resumeSelections.Enqueue(lineValue);
+                    } else {
+                        throw new Exception("Error parsing line from selections.txt!");
+                    }
                 }
             }
             buttonResume.Visible = false;
@@ -132,23 +137,57 @@ namespace Kata {
             return everydayObjectGroup.Content[subExerciseNum]; 
         }
 
+        private dynamic GetAnimaliaPhylum(dynamic phyla, int lessonNum)
+        {
+            dynamic selectedPhylum = null;
+            int selectedPhylumIndex = 0;
+
+            if (resuming && resumeSelections.Count > 0) {
+                selectedPhylumIndex = resumeSelections.Dequeue();
+                selectedPhylum = phyla[selectedPhylumIndex];
+            } else {
+                resuming = false;
+                int i = 0;
+                foreach (dynamic phylum in phyla) {
+                    if (phylum.Taxon_Name == "Chordata" &&
+                        lessonNum == (byte)KataLessons.Animals
+                    ) {
+                        selectedPhylum = phylum;
+                        selectedPhylumIndex = i;
+                    } else if (phylum.Taxon_Name == "Arthropoda" &&
+                        lessonNum == (byte)KataLessons.Insects
+                    ) {
+                        selectedPhylum = phylum;
+                        selectedPhylumIndex = i;
+                    }
+                    i++;
+                }
+
+            }
+            saveSelections.Enqueue(selectedPhylumIndex);
+            return selectedPhylum;
+        }
+
         private dynamic SelectAnimal(dynamic kingdom, dynamic exercise, int exerciseNum)
         {
-            return null;
+            dynamic phylum = GetAnimaliaPhylum(kingdom.Content.Content, (int)KataLessons.Animals);
+            return DescendTaxon(phylum, "");
         }
 
         private dynamic SelectInsect(dynamic kingdom, dynamic exercise, int exerciseNum)
         {
-            return null;
+            dynamic phylum = GetAnimaliaPhylum(kingdom.Content.Content, (int)KataLessons.Insects);
+            return DescendTaxon(phylum, "");
         }
 
 
         private int GetTaxonNum(dynamic taxonomicRank)
         {
             int taxonNum = 0;
-            if (resuming) {
+            if (resuming && resumeSelections.Count > 0) {
                 taxonNum = resumeSelections.Dequeue();
             } else {
+                resuming = false;
                 taxonNum = RandomNumber(taxonomicRank.Content.Count - 1);
             }
             saveSelections.Enqueue(taxonNum);
@@ -164,9 +203,8 @@ namespace Kata {
 
                 if (taxonomicRank.Taxonomic_Rank == "Species") {
                     // we're done!
-                    return taxon;
+                    return taxon.Taxon_Name;
                 } else {
-                    MessageBox.Show("Partial taxonomy selected for species sub-exercies, please enter more information to continue and press \"Resume Selection\" to continue.");
                     return DescendTaxon(taxon, taxonString);
                 }
             } else {
@@ -198,10 +236,12 @@ namespace Kata {
         {
             dynamic selectedKingdom = null;
             int selectedKingdomIndex = 0;
-            if (resuming) {
+
+            if (resuming && resumeSelections.Count > 0) {
                 selectedKingdomIndex = resumeSelections.Dequeue();
                 selectedKingdom = kingdoms[selectedKingdomIndex];
             } else {
+                resuming = false;
                 int i = 0;
                 foreach (dynamic kingdom in kingdoms) {
                     if (kingdom.Taxon_Name == "Plantae" &&
@@ -229,6 +269,13 @@ namespace Kata {
         private dynamic SelectSpecies(dynamic exercise, int lessonNum, int exerciseNum)
         {
             string speciesFile = "Configuration\\JSON\\Species.json";
+
+            try {
+                File.Copy("../../" + speciesFile, speciesFile, true);
+            } catch (Exception e) {
+                MessageBox.Show("Error: could not update Species.json! -- " + e.InnerException);
+            }
+
             dynamic species = LoadJson(speciesFile);
             dynamic kingdom = GetKingdom(species.Kingdoms, lessonNum);
 
@@ -251,9 +298,10 @@ namespace Kata {
             if (comboBoxLesson.SelectedIndex >= 0) { // handles selecting from only one lesson, for now
                 lessonNum = comboBoxLesson.SelectedIndex;        
             } else {
-                if (resuming) {
+                if (resuming && resumeSelections.Count > 0) {
                    lessonNum = resumeSelections.Dequeue();
                 } else {
+                    resuming = false;
                     lessonNum = SelectLessonNum(katas);
                 }
             }
@@ -264,9 +312,10 @@ namespace Kata {
         private int GetExerciseNum(dynamic lesson)
         {
             int exerciseNum = 0;
-            if (resuming) {
+            if (resuming && resumeSelections.Count > 0) {
                 exerciseNum = resumeSelections.Dequeue();
             } else {
+                resuming = false;
                 exerciseNum = SelectExerciseNum(lesson);
             }
             saveSelections.Enqueue(exerciseNum);
@@ -380,6 +429,7 @@ namespace Kata {
         {
             ResetResultText();
             ReadSelections();
+            resuming = true;
             pickDrawaboxExerciseRandomly();
         }
     }
