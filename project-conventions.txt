@@ -44,3 +44,7 @@ Branch Naming Convention:
   If using the team naming conventions, then the example would be the same, simply replacing
   "feature/search-page" with "feature/search-page/david". That is,
     * "feature/search-page/david/subfeature/dropdown-component"
+
+    
+  After the branch is complete it should be merged back in as described here:
+    https://stackoverflow.com/questions/8614112/how-to-close-off-a-git-branch/8617879

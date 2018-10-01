@@ -1,0 +1,69 @@
+Closing Branch:
+    https://stackoverflow.com/questions/8614112/how-to-close-off-a-git-branch/8617879
+
+Project Directory Structure:
+  https://stackoverflow.com/questions/36199769/component-based-react-redux-project-directory-structure
+
+Branching Process:
+  https://stackoverflow.com/questions/8614112/how-to-close-off-a-git-branch
+
+Sub-branching:
+  https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch
+
+Git Checkout Branch With Local Changes:
+  https://stackoverflow.com/questions/22082307/git-switch-branch-without-discarding-local-changes/22082669
+
+React, Redux Project Examples:
+  https://github.com/erikras/react-redux-universal-hot-example
+  https://github.com/davidkpiano/react-redux-form
+
+React, Redux Term Explanations:
+  https://medium.com/@holtkam2/react-redux-understanding-components-containers-actions-and-reducers-a2f9287bfb92
+
+Color Blender:
+  https://meyerweb.com/eric/tools/color-blend/
+
+Dependencies vs Dev Dependencies:
+  https://blog.silvenon.com/dependencies-or-devdependencies-7715b24b6abf
+
+Browser and OS Market Share:
+  https://www.netmarketshare.com
+  https://www.w3counter.com
+
+Browser Feature Support:
+  https://caniuse.com
+
+Android vs iOS Market Share in US:
+  https://www.statista.com/statistics/266572/market-share-held-by-smartphone-platforms-in-the-united-states/
+
+Mobile Market Share:
+  http://gs.statcounter.com/os-market-share/mobile/worldwide
+
+True Object Freezing for Constants:
+  https://github.com/keithamus/proposal-object-freeze-seal-syntax
+
+Darker or Lighter Colors:
+  http://www.0to255.com
+
+JS Style Guide:
+  https://github.com/airbnb/javascript
+
+Path of Exile API Resources:
+  https://www.pathofexile.com/developer/docs/api-resources
+
+
+Branch Naming Conventions:
+  https://github.com/agis/git-style-guide
+  https://nvie.com/posts/a-successful-git-branching-model/
+  http://www.guyroutledge.co.uk/blog/git-branch-naming-conventions/
+  https://community.atlassian.com/t5/Git-questions/What-branch-name-conventions-do-you-use/qaq-p/510537
+  https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+  https://github.com/nvie/gitflow/issues/24
+  https://github.com/petervanderdoes/gitflow-avh/issues/45
+
+Combine Relay and Redux:
+  https://beautifulcode.1stdibs.com/2016/09/07/reconcile-relay-redux/
+
+Securely Storing API Keys:
+  https://medium.freecodecamp.org/how-to-securely-store-api-keys-4ff3ea19ebda
+
