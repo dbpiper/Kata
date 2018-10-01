@@ -29,6 +29,7 @@
             this.comboBoxLesson = new System.Windows.Forms.ComboBox();
             this.comboBoxKataType = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonResume = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button3
@@ -105,11 +106,23 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // buttonResume
+            // 
+            this.buttonResume.BackColor = System.Drawing.Color.PaleGreen;
+            this.buttonResume.Location = new System.Drawing.Point(447, 247);
+            this.buttonResume.Name = "buttonResume";
+            this.buttonResume.Size = new System.Drawing.Size(75, 47);
+            this.buttonResume.TabIndex = 6;
+            this.buttonResume.Text = "Resume Selection";
+            this.buttonResume.UseVisualStyleBackColor = false;
+            this.buttonResume.Click += new System.EventHandler(this.buttonResume_Click);
+            // 
             // Kata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 450);
+            this.Controls.Add(this.buttonResume);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxKataType);
             this.Controls.Add(this.comboBoxLesson);
@@ -132,6 +145,7 @@
         private System.Windows.Forms.ComboBox comboBoxLesson;
         private System.Windows.Forms.ComboBox comboBoxKataType;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonResume;
     }
 }
 

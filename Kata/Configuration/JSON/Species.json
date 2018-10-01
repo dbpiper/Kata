@@ -1,0 +1,220 @@
+{
+    "Kingdoms" :
+    [
+        {
+            "Taxon_Name": "Plantae"
+        },
+        {
+            "Taxon_Name": "Animalia",
+            "Content": {
+                "Taxonomic_Rank": "Plyla",
+                "Content":
+                [
+                    {
+                        "Taxon_Name": "Arthropoda",
+                        "Content":
+                        {
+                            "Taxonomic_Rank": "Class",
+                            "Content":
+                            [
+                                {
+                                    "Taxon_Name": "Insecta",
+                                    "Content":
+                                    {
+                                        "Taxonomic_Rank": "Order",
+                                        "Content":
+                                        [
+                                            {"Taxon_Name": "Archaeognatha"},
+                                            {
+                                                "Taxon_Name": "Zygentoma",
+                                                "Content":
+                                                {
+                                                    "Taxonomic_Rank": "Family",
+                                                    "Content":
+                                                    [
+                                                        {
+                                                            "Taxon_Name": "Lepismatidae",
+                                                            "Content":
+                                                            {
+                                                                "Taxonomic_Rank": "Genus",
+                                                                "Content":
+                                                                [
+                                                                    {"Taxon_Name": "Acrotelsa"},
+                                                                    {"Taxon_Name": "Allacrotelsa"},
+                                                                    {
+                                                                        "Taxon_Name": "Ctenolepisma",
+                                                                        "Content":
+                                                                        {
+                                                                            "Taxonomic_Rank": "Species",
+                                                                            "Content":
+                                                                            [
+                                                                                {"Taxon_Name": "Ctenolepisma abyssinica"},
+                                                                                {"Taxon_Name": "Ctenolepisma africanella"},
+                                                                                {"Taxon_Name": "Ctenolepisma albida"},
+                                                                                {"Taxon_Name": "Ctenolepisma algharbica"},
+                                                                                {"Taxon_Name": "Ctenolepisma almeriensis"},
+                                                                                {"Taxon_Name": "Ctenolepisma alticola"},
+                                                                                {"Taxon_Name": "Ctenolepisma angustiella"},
+                                                                                {"Taxon_Name": "Ctenolepisma armeniaca"},
+                                                                                {"Taxon_Name": "Ctenolepisma barchanicum"},
+                                                                                {"Taxon_Name": "Ctenolepisma basilewskyi"},
+                                                                                {"Taxon_Name": "Ctenolepisma boettgeriana"},
+                                                                                {"Taxon_Name": "Ctenolepisma burmanica"},
+                                                                                {"Taxon_Name": "Ctenolepisma cabindae"},
+                                                                                {"Taxon_Name": "Ctenolepisma calva"},
+                                                                                {"Taxon_Name": "Ctenolepisma canariensis"},
+                                                                                {"Taxon_Name": "Ctenolepisma ciliata"},
+                                                                                {"Taxon_Name": "Ctenolepisma conductrix"},
+                                                                                {"Taxon_Name": "Ctenolepisma confalonieri"},
+                                                                                {"Taxon_Name": "Ctenolepisma decellei"},
+                                                                                {"Taxon_Name": "Ctenolepisma desaegeri"},
+                                                                                {"Taxon_Name": "Ctenolepisma dewittei"},
+                                                                                {"Taxon_Name": "Ctenolepisma dubitalis"},
+                                                                                {"Taxon_Name": "Ctenolepisma dzhungaricum"},
+                                                                                {"Taxon_Name": "Ctenolepisma electrans"},
+                                                                                {"Taxon_Name": "Ctenolepisma fasciata"},
+                                                                                {"Taxon_Name": "Ctenolepisma feae"},
+                                                                                {"Taxon_Name": "Ctenolepisma gabuensis"},
+                                                                                {"Taxon_Name": "Ctenolepisma guadianica"},
+                                                                                {"Taxon_Name": "Ctenolepisma guanche"},
+                                                                                {"Taxon_Name": "Ctenolepisma guineensis"},
+                                                                                {"Taxon_Name": "Ctenolepisma gunini"},
+                                                                                {"Taxon_Name": "Ctenolepisma halophila"},
+                                                                                {"Taxon_Name": "Ctenolepisma howa"},
+                                                                                {"Taxon_Name": "Ctenolepisma hummelincki"},
+                                                                                {"Taxon_Name": "Ctenolepisma immanis"},
+                                                                                {"Taxon_Name": "Ctenolepisma incita"},
+                                                                                {"Taxon_Name": "Ctenolepisma insulicola"},
+                                                                                {"Taxon_Name": "Ctenolepisma kaszabi"},
+                                                                                {"Taxon_Name": "Ctenolepisma kervillei"},
+                                                                                {"Taxon_Name": "Ctenolepisma kuhitangicum"},
+                                                                                {"Taxon_Name": "Ctenolepisma latisternata"},
+                                                                                {"Taxon_Name": "Ctenolepisma lindbergi"},
+                                                                                {"Taxon_Name": "Ctenolepisma lineata"},
+                                                                                {"Taxon_Name": "Ctenolepisma longicaudata"},
+                                                                                {"Taxon_Name": "Ctenolepisma madagascariensis"},
+                                                                                {"Taxon_Name": "Ctenolepisma maroccana"},
+                                                                                {"Taxon_Name": "Ctenolepisma michaelseni"},
+                                                                                {"Taxon_Name": "Ctenolepisma nicoletii"},
+                                                                                {"Taxon_Name": "Ctenolepisma nigerica"},
+                                                                                {"Taxon_Name": "Ctenolepisma nigra"},
+                                                                                {"Taxon_Name": "Ctenolepisma petiti"},
+                                                                                {"Taxon_Name": "Ctenolepisma picturata"},
+                                                                                {"Taxon_Name": "Ctenolepisma pinicola"},
+                                                                                {"Taxon_Name": "Ctenolepisma pretoriana"},
+                                                                                {"Taxon_Name": "Ctenolepisma przewalskyi"},
+                                                                                {"Taxon_Name": "Ctenolepisma rodriguezi"},
+                                                                                {"Taxon_Name": "Ctenolepisma roszkowskii"},
+                                                                                {"Taxon_Name": "Ctenolepisma rothschildi"},
+                                                                                {"Taxon_Name": "Ctenolepisma sabirovae"},
+                                                                                {"Taxon_Name": "Ctenolepisma sanctaehelenae"},
+                                                                                {"Taxon_Name": "Ctenolepisma sergii"},
+                                                                                {"Taxon_Name": "Ctenolepisma serranoi"},
+                                                                                {"Taxon_Name": "Ctenolepisma somaliensis"},
+                                                                                {"Taxon_Name": "Ctenolepisma submagna"},
+                                                                                {"Taxon_Name": "Ctenolepisma sudanica"},
+                                                                                {"Taxon_Name": "Ctenolepisma tanzanica"},
+                                                                                {"Taxon_Name": "Ctenolepisma targioniana"},
+                                                                                {"Taxon_Name": "Ctenolepisma targionii"},
+                                                                                {"Taxon_Name": "Ctenolepisma tavaresi"},
+                                                                                {"Taxon_Name": "Ctenolepisma tenebrica"},
+                                                                                {"Taxon_Name": "Ctenolepisma terebrans"},
+                                                                                {"Taxon_Name": "Ctenolepisma turcomanicum"},
+                                                                                {"Taxon_Name": "Ctenolepisma unipectinata"},
+                                                                                {"Taxon_Name": "Ctenolepisma unistila"},
+                                                                                {"Taxon_Name": "Ctenolepisma vanharteni"},
+                                                                                {"Taxon_Name": "Ctenolepisma versluysi"},
+                                                                                {"Taxon_Name": "Ctenolepisma vieirai"},
+                                                                                {"Taxon_Name": "Ctenolepisma villosa"},
+                                                                                {"Taxon_Name": "Ctenolepisma wahrmani"},
+                                                                                {"Taxon_Name": "Ctenolepisma weberi"}
+                                                                                
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {"Taxon_Name": "Lepisma"},
+                                                                    {"Taxon_Name": "Leucolepisma"},
+                                                                    {"Taxon_Name": "Mirolepisma"},
+                                                                    {"Taxon_Name": "Neoasterolepisma"},
+                                                                    {"Taxon_Name": "Prolepismina"},
+                                                                    {"Taxon_Name": "Stylifera"},
+                                                                    {"Taxon_Name": "Thermobia"},
+                                                                    {"Taxon_Name": "Tricholepisma"}
+                                                                    
+                                                                ]
+                                                            }
+                                                        },
+                                                        {"Taxon_Name": "Nicoletiidae"},
+                                                        {"Taxon_Name": "Lepidotrichidae"},
+                                                        {"Taxon_Name": "Maindroniidae"},
+                                                        {"Taxon_Name": "Protrinemuridae"}
+                                                    ]
+                                                }
+                                            },
+                                            {"Taxon_Name": "Odonata"},
+                                            {"Taxon_Name": "Ephemeroptera"},
+                                            {"Taxon_Name": "Hemiptera"},
+                                            {"Taxon_Name": "Psocodea"},
+                                            {"Taxon_Name": "Thysanoptera"},
+                                            {"Taxon_Name": "Coleoptera"},
+                                            {"Taxon_Name": "Diptera"},
+                                            {"Taxon_Name": "Hymenoptera"},
+                                            {"Taxon_Name": "Lepidoptera"},
+                                            {"Taxon_Name": "Mecoptera"},
+                                            {"Taxon_Name": "Megaloptera"},
+                                            {"Taxon_Name": "Neuroptera"},
+                                            {"Taxon_Name": "Raphidioptera"},
+                                            {"Taxon_Name": "Siphonaptera"},
+                                            {"Taxon_Name": "Strepsiptera"},
+                                            {"Taxon_Name": "Trichoptera"},
+                                            {"Taxon_Name": "Dermaptera"},
+                                            {"Taxon_Name": "Embioptera"},
+                                            {"Taxon_Name": "Notoptera"},
+                                            {"Taxon_Name": "Orthoptera"},
+                                            {"Taxon_Name": "Titanoptera"},
+                                            {"Taxon_Name": "Phasmatodea"},
+                                            {"Taxon_Name": "Plecoptera"},
+                                            {"Taxon_Name": "Zoraptera"},
+                                            {"Taxon_Name": "Blattodea"}
+                                        ]
+                                    }
+                                },
+                                {"Taxon_Name": "Entognatha"},
+                                {"Taxon_Name": "Arachnida"},
+                                {"Taxon_Name": "Merostomata"},
+                                {"Taxon_Name": "Pycnogonida"},
+                                {
+                                    "Taxon_Name": "Chilopoda",
+                                    "Content":
+                                    {
+                                        "Taxonomic_Rank": "Order",
+                                        "Content":
+                                        [
+                                            {"Taxon_Name": "Scutigeromorpha"},
+                                            {"Taxon_Name": "Lithobiomorpha"},
+                                            {"Taxon_Name": "Craterostigmomorpha"},
+                                            {"Taxon_Name": "Scolopendromorpha"},
+                                            {"Taxon_Name": "Geophilomorpha"}
+                                        ]
+                                    }
+                                },
+                                {"Taxon_Name": "Diplopoda"},
+                                {"Taxon_Name": "Pauropoda"},
+                                {"Taxon_Name": "Symphyla"},
+                                {"Taxon_Name": "Branchiopoda"},
+                                {"Taxon_Name": "Remipedia"},
+                                {"Taxon_Name": "Cepalocarida"},
+                                {"Taxon_Name": "Maxillopoda"},
+                                {"Taxon_Name": "Ostracoda"},
+                                {"Taxon_Name": "Malacostraca"}
+                            ]
+                        }
+                    },
+                    {
+                        "Taxon_Name": "Chordata"
+                    }
+                ]
+            }
+        }
+    ]
+}
