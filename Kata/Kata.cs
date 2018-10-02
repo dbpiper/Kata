@@ -217,7 +217,8 @@ namespace Kata {
                     return DescendTaxon(taxon, taxonString);
                 }
             } else {
-                throw new Exception("Error picking next taxon: Taxonmic Rank has no Content!");
+                SaveSelections();
+                return taxonString + " " + currentTaxon.Taxon_Name.ToString();
             }
         }
 

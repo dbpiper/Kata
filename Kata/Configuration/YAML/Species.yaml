@@ -169,3 +169,17 @@ Kingdoms:
         - Taxon_Name: Ostracoda
         - Taxon_Name: Malacostraca
     - Taxon_Name: Chordata
+      Content:
+        Taxonomic_Rank: Subphylum/Clade
+        Content:
+        - Taxon_Name: Cephalochordata
+          Content:
+            Taxonomic_Rank: Class
+            Content:
+            - Taxon_Name: Leptocardii
+        - Taxon_Name: Olfactores
+          Content:
+            Taxonomic_Rank: Class
+            Content:
+            - Taxon_Name: Tunicata
+            - Taxon_Name: Vertebrata
