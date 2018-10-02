@@ -9,16 +9,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YamlDotNet.Serialization;
+using YamlDotNet.RepresentationModel;
 
 namespace Kata {
     public partial class Kata : Form {
 
-        enum KataTypes : byte {
+        private enum KataTypes : byte {
             Drawabox,
             Music
         };
 
-        enum KataLessons : byte
+        private enum KataLessons : byte
         {
             Basics,
             Forms,
@@ -28,34 +30,41 @@ namespace Kata {
             Objects
         };
 
-        Queue<int> resumeSelections = new Queue<int>(); // loaded from file (when resume button pressed)
-        Queue<int> saveSelections = new Queue<int>(); // saved to file (when hits bottom of species tree)
+        private Queue<int> _resumeSelections = new Queue<int>(); // loaded from file (when resume button pressed)
+        private Queue<int> _saveSelections = new Queue<int>(); // saved to file (when hits bottom of species tree)
 
-        bool resuming = false;
+        private bool _resuming = false;
 
         public Kata() {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-
-        }
-
         private void PopulateList(string filePath) {
             dynamic katas = LoadJson(filePath);
             JArray array = JArray.Parse(katas.Lessons.List.ToString());
-            comboBoxLesson.Items.AddRange(array.ToObject<List<String>>().ToArray());
+            // ReSharper disable once CoVariantArrayConversion
+            comboBoxLesson.Items.AddRange(array.ToObject<List<string>>().ToArray());
         }
 
         public dynamic LoadJson(string file) {
             using (StreamReader r = new StreamReader(file)) {
-                string json = r.ReadToEnd();
-                dynamic jsonObject = JObject.Parse(json);
+                string yamlString = r.ReadToEnd();
+                var yaml = new DeserializerBuilder().Build().Deserialize(
+                    new StringReader(yamlString)
+                );
+
+                var serializer = new SerializerBuilder()
+                    .JsonCompatible()
+                    .Build();
+
+                var jsonString = serializer.Serialize(yaml);
+
+                var jsonObject = JObject.Parse(jsonString);
                 return jsonObject;
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
+        private void Form1_Load(object sender, EventArgs e) {                  
 
             //comboBoxKataType.DropDownStyle = ComboBoxStyle.DropDownList;
             //comboBoxLesson.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -71,8 +80,8 @@ namespace Kata {
             try {
                 fs = new FileStream("Configuration\\selections.txt", FileMode.Create);
                 using (StreamWriter writer = new StreamWriter(fs)) {
-                    while(saveSelections.Count > 0) {
-                        writer.WriteLine(saveSelections.Dequeue().ToString());
+                    while(_saveSelections.Count > 0) {
+                        writer.WriteLine(_saveSelections.Dequeue().ToString());
                     }
                 }
             } finally {
@@ -93,7 +102,7 @@ namespace Kata {
                 while((line = reader.ReadLine()) != null) {
                     int lineValue = 0;
                     if (Int32.TryParse(line, out lineValue)) {
-                        resumeSelections.Enqueue(lineValue);
+                        _resumeSelections.Enqueue(lineValue);
                     } else {
                         throw new Exception("Error parsing line from selections.txt!");
                     }
@@ -104,8 +113,8 @@ namespace Kata {
 
         private void ResetQueues()
         {
-            resumeSelections = new Queue<int>(); // loaded from file (when resume button pressed)
-            saveSelections = new Queue<int>(); // saved to file (when hits bottom of species tree)
+            _resumeSelections = new Queue<int>(); // loaded from file (when resume button pressed)
+            _saveSelections = new Queue<int>(); // saved to file (when hits bottom of species tree)
         }
 
         // generate a random number from 0 to max, inclusive that is [0, max]
@@ -142,11 +151,11 @@ namespace Kata {
             dynamic selectedPhylum = null;
             int selectedPhylumIndex = 0;
 
-            if (resuming && resumeSelections.Count > 0) {
-                selectedPhylumIndex = resumeSelections.Dequeue();
+            if (_resuming && _resumeSelections.Count > 0) {
+                selectedPhylumIndex = _resumeSelections.Dequeue();
                 selectedPhylum = phyla[selectedPhylumIndex];
             } else {
-                resuming = false;
+                _resuming = false;
                 int i = 0;
                 foreach (dynamic phylum in phyla) {
                     if (phylum.Taxon_Name == "Chordata" &&
@@ -164,7 +173,7 @@ namespace Kata {
                 }
 
             }
-            saveSelections.Enqueue(selectedPhylumIndex);
+            _saveSelections.Enqueue(selectedPhylumIndex);
             return selectedPhylum;
         }
 
@@ -184,13 +193,13 @@ namespace Kata {
         private int GetTaxonNum(dynamic taxonomicRank)
         {
             int taxonNum = 0;
-            if (resuming && resumeSelections.Count > 0) {
-                taxonNum = resumeSelections.Dequeue();
+            if (_resuming && _resumeSelections.Count > 0) {
+                taxonNum = _resumeSelections.Dequeue();
             } else {
-                resuming = false;
+                _resuming = false;
                 taxonNum = RandomNumber(taxonomicRank.Content.Count - 1);
             }
-            saveSelections.Enqueue(taxonNum);
+            _saveSelections.Enqueue(taxonNum);
             return taxonNum;
         }
 
@@ -237,11 +246,11 @@ namespace Kata {
             dynamic selectedKingdom = null;
             int selectedKingdomIndex = 0;
 
-            if (resuming && resumeSelections.Count > 0) {
-                selectedKingdomIndex = resumeSelections.Dequeue();
+            if (_resuming && _resumeSelections.Count > 0) {
+                selectedKingdomIndex = _resumeSelections.Dequeue();
                 selectedKingdom = kingdoms[selectedKingdomIndex];
             } else {
-                resuming = false;
+                _resuming = false;
                 int i = 0;
                 foreach (dynamic kingdom in kingdoms) {
                     if (kingdom.Taxon_Name == "Plantae" &&
@@ -262,7 +271,7 @@ namespace Kata {
                 }
 
             }
-            saveSelections.Enqueue(selectedKingdomIndex);
+            _saveSelections.Enqueue(selectedKingdomIndex);
             return selectedKingdom;
         }
 
@@ -298,27 +307,27 @@ namespace Kata {
             if (comboBoxLesson.SelectedIndex >= 0) { // handles selecting from only one lesson, for now
                 lessonNum = comboBoxLesson.SelectedIndex;        
             } else {
-                if (resuming && resumeSelections.Count > 0) {
-                   lessonNum = resumeSelections.Dequeue();
+                if (_resuming && _resumeSelections.Count > 0) {
+                   lessonNum = _resumeSelections.Dequeue();
                 } else {
-                    resuming = false;
+                    _resuming = false;
                     lessonNum = SelectLessonNum(katas);
                 }
             }
-            saveSelections.Enqueue(lessonNum);
+            _saveSelections.Enqueue(lessonNum);
             return lessonNum;
         }
 
         private int GetExerciseNum(dynamic lesson)
         {
             int exerciseNum = 0;
-            if (resuming && resumeSelections.Count > 0) {
-                exerciseNum = resumeSelections.Dequeue();
+            if (_resuming && _resumeSelections.Count > 0) {
+                exerciseNum = _resumeSelections.Dequeue();
             } else {
-                resuming = false;
+                _resuming = false;
                 exerciseNum = SelectExerciseNum(lesson);
             }
-            saveSelections.Enqueue(exerciseNum);
+            _saveSelections.Enqueue(exerciseNum);
             return exerciseNum;
         }
 
@@ -429,7 +438,7 @@ namespace Kata {
         {
             ResetResultText();
             ReadSelections();
-            resuming = true;
+            _resuming = true;
             pickDrawaboxExerciseRandomly();
         }
     }
