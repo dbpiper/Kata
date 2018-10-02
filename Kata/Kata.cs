@@ -40,13 +40,13 @@ namespace Kata {
         }
 
         private void PopulateList(string filePath) {
-            dynamic katas = LoadJson(filePath);
+            dynamic katas = LoadYaml(filePath);
             JArray array = JArray.Parse(katas.Lessons.List.ToString());
             // ReSharper disable once CoVariantArrayConversion
             comboBoxLesson.Items.AddRange(array.ToObject<List<string>>().ToArray());
         }
 
-        public dynamic LoadJson(string file) {
+        public dynamic LoadYaml(string file) {
             using (StreamReader r = new StreamReader(file)) {
                 string yamlString = r.ReadToEnd();
                 var yaml = new DeserializerBuilder().Build().Deserialize(
@@ -136,8 +136,8 @@ namespace Kata {
         }
 
         private dynamic SelectEverydayObject(int exerciseNum) {
-            string everydayObjectsFile = "Configuration\\JSON\\EverydayObjects.json";
-            dynamic everydayObjects = LoadJson(everydayObjectsFile);
+            string everydayObjectsFile = "Configuration\\YAML\\EverydayObjects.yaml";
+            dynamic everydayObjects = LoadYaml(everydayObjectsFile);
 
             dynamic everydayObjectGroup = everydayObjects["Everyday Objects"][exerciseNum];
             int exerciseCount = everydayObjectGroup.Content.Count;
@@ -277,15 +277,15 @@ namespace Kata {
 
         private dynamic SelectSpecies(dynamic exercise, int lessonNum, int exerciseNum)
         {
-            string speciesFile = "Configuration\\JSON\\Species.json";
+            string speciesFile = "Configuration\\YAML\\Species.yaml";
 
             try {
                 File.Copy("../../" + speciesFile, speciesFile, true);
             } catch (Exception e) {
-                MessageBox.Show("Error: could not update Species.json! -- " + e.InnerException);
+                MessageBox.Show("Error: could not update Species.yaml! -- " + e.InnerException);
             }
 
-            dynamic species = LoadJson(speciesFile);
+            dynamic species = LoadYaml(speciesFile);
             dynamic kingdom = GetKingdom(species.Kingdoms, lessonNum);
 
             switch(lessonNum) {
@@ -332,8 +332,8 @@ namespace Kata {
         }
 
         private void pickDrawaboxExerciseRandomly() {
-            string kataFile = "Configuration\\JSON\\DrawaboxKatas.json";
-            dynamic katas = LoadJson(kataFile);
+            string kataFile = "Configuration\\YAML\\DrawaboxKatas.yaml";
+            dynamic katas = LoadYaml(kataFile);
 
             int lessonNum = GetLessonNum(katas);
             dynamic lesson = null;
@@ -365,8 +365,8 @@ namespace Kata {
         }
 
         private void pickMusicExerciseRandomly() {
-            string musicKataFile = "Configuration\\JSON\\Music.json";
-            dynamic musicKatas = LoadJson(musicKataFile);
+            string musicKataFile = "Configuration\\YAML\\Music.yaml";
+            dynamic musicKatas = LoadYaml(musicKataFile);
 
             int bpmIndex = RandomNumber(musicKatas.BPM.Count - 1);
             int bpm = musicKatas.BPM[bpmIndex];
@@ -407,7 +407,7 @@ namespace Kata {
                 comboBoxLesson.Visible = false;
             } else {
                 comboBoxLesson.Visible = true;
-                PopulateList("Configuration\\JSON\\DrawaboxKatas.json");
+                PopulateList("Configuration\\YAML\\DrawaboxKatas.yaml");
             }
 
         }
