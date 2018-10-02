@@ -332,7 +332,7 @@ namespace Kata {
             return exerciseNum;
         }
 
-        private void pickDrawaboxExerciseRandomly() {
+        private void PickDrawaboxExerciseRandomly() {
             string kataFile = "Configuration\\YAML\\DrawaboxKatas.yaml";
             dynamic katas = LoadYaml(kataFile);
 
@@ -365,7 +365,7 @@ namespace Kata {
             labelResult.Text = message;
         }
 
-        private void pickMusicExerciseRandomly() {
+        private void PickMusicExerciseRandomly() {
             string musicKataFile = "Configuration\\YAML\\Music.yaml";
             dynamic musicKatas = LoadYaml(musicKataFile);
 
@@ -383,10 +383,10 @@ namespace Kata {
         private void buttonRandomSelect_Click(object sender, EventArgs e) {
             switch (comboBoxKataType.SelectedIndex) {
             case (byte)KataTypes.Drawabox:
-                pickDrawaboxExerciseRandomly();
+                PickDrawaboxExerciseRandomly();
                 break;
             case (byte)KataTypes.Music:
-                pickMusicExerciseRandomly();
+                PickMusicExerciseRandomly();
                 break;
             default:
                 labelResult.Text = "Cannot select Kata: No Kata Type selected yet. Please select a Kata Type from the dropdown above.";
@@ -440,7 +440,7 @@ namespace Kata {
             ResetResultText();
             ReadSelections();
             _resuming = true;
-            pickDrawaboxExerciseRandomly();
+            PickDrawaboxExerciseRandomly();
         }
     }
 }

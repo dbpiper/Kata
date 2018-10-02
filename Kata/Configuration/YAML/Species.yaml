@@ -176,10 +176,101 @@ Kingdoms:
           Content:
             Taxonomic_Rank: Class
             Content:
-            - Taxon_Name: Leptocardii
+            - Taxon_Name: Leptocardii       # had an error here!
+              Content:
+                Taxonomic_Rank: Order
+                Content:
+                - Taxon_Name: Amphioxiformes
+                  Content:
+                    Taxonomic_Rank: Family
+                    Content:
+                    - Asymmetronidae
+                    - Branchiostomidae
         - Taxon_Name: Olfactores
           Content:
-            Taxonomic_Rank: Class
+            Taxonomic_Rank: Class/Subphylum
             Content:
             - Taxon_Name: Tunicata
-            - Taxon_Name: Vertebrata
+            - Taxon_Name: Vertebrata        # had an error here!
+              Content:
+                Taxonomic_Rank: Superclass/Infraphylum
+                Content:
+                - Taxon_Name: Agnatha
+                - Taxon_Name: Gnathostomata
+                  Content:
+                    Taxonomic_Rank: Clade
+                    Content:
+                    - Taxon_Name: Eugnathostomata
+                      Content:
+                        Taxonomic_Rank: Clade
+                        Content:
+                        - Taxon_Name: Chondrichthyes
+                        - Taxon_Name: Osteichthyes
+                          Content:
+                            Taxonomic_Rank: Clade
+                            Content:
+                            - Taxon_Name: Actinopterygii
+                            - Taxon_Name: Sarcopterygii
+                              Content:
+                                Taxonomic_Rank: Clade
+                                Content:
+                                  - Taxon_Name: Actinistia
+                                  - Taxon_Name: Dipnoi
+                                  - Taxon_Name: Tetrapodomorpha
+                                    Content:
+                                      Taxonomic_Rank: Superclass
+                                      Content:
+                                      - Taxon_Name: Tetrapoda
+                                        Content:
+                                          Taxonomic_Rank: Class
+                                          Content:
+                                          - Taxon_Name: Amphibia
+                                            Content:
+                                              Taxonomic_Rank: Subclass
+                                              Content:
+                                              - Taxon_Name: Lissamphibia
+                                                Content:
+                                                  Taxonomic_Rank: Superorder/Clade
+                                                  Content:
+                                                  - Taxon_Name: Batrachia
+                                                    Content:
+                                                      Taxonomic_Rank: Clade
+                                                      Content:
+                                                      - Taxon_Name: Salientia
+                                                      - Taxon_Name: Caudata
+                                                        Content:
+                                                          Taxonomic_Rank: Order
+                                                          Content:
+                                                          - Taxon_Name: Urodela
+                                                            Content:
+                                                              Taxonomic_Rank: Suborder
+                                                              Content:
+                                                              - Taxon_Name: Cryptobranchoidea
+                                                              - Taxon_Name: Salamandroidea
+                                                              - Taxon_Name: Sirenoidea        # goes past maxRecursion limit imposed by YamlDotNet
+                                                                Content:
+                                                                  Taxonomic_Rank: Genus 
+                                                                  Content:
+                                                                  - Taxon_Name: Pseudobranchus
+                                                                  - Taxon_Name: Siren
+                                                                  
+                                                  - Taxon_Name: Gymnophiona
+                                          - Taxon_Name: Sauropsida
+                                          - Taxon_Name: Synapsida
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          

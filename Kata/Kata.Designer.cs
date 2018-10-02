@@ -59,6 +59,7 @@
             // 
             this.labelResult.AutoSize = true;
             this.labelResult.Location = new System.Drawing.Point(72, 257);
+            this.labelResult.MaximumSize = new System.Drawing.Size(300, 80);
             this.labelResult.Name = "labelResult";
             this.labelResult.Size = new System.Drawing.Size(74, 13);
             this.labelResult.TabIndex = 2;
