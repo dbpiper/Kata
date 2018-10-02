@@ -3,14 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using YamlDotNet.Serialization;
-using YamlDotNet.RepresentationModel;
 
 namespace Kata {
     public partial class Kata : Form {
@@ -46,18 +45,61 @@ namespace Kata {
             comboBoxLesson.Items.AddRange(array.ToObject<List<string>>().ToArray());
         }
 
-        public dynamic LoadYaml(string file) {
+        private string GetPythonPath()
+        {
+
+            using (StreamReader reader = new StreamReader(@"Configuration\Helper_Code\python_path.txt")) {
+                string line = "";
+                if ((line = reader.ReadLine()) != null) {
+                    return line;
+                } else {
+                    return "";
+                }
+ 
+            }
+        }
+        private string LoadYamlToJsonPython(string yamlFileName)
+        {
+            string pythonFileName = @"Configuration\Helper_Code\YamlToJson.py";
+
+            Process process = new Process();
+            process.StartInfo = new ProcessStartInfo
+            {
+                FileName = GetPythonPath(), 
+                Arguments = $"{pythonFileName} {yamlFileName}",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+
+                CreateNoWindow = true
+            }; // object initializer
+
+            process.Start();
+
+            string jsonString = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+
+
+            return jsonString;
+        }
+
+        private dynamic LoadYaml(string file) {
             using (StreamReader r = new StreamReader(file)) {
-                string yamlString = r.ReadToEnd();
-                var yaml = new DeserializerBuilder().Build().Deserialize(
-                    new StringReader(yamlString)
-                );
+                // Old YamlDotNet API access
+                //
+                //string yamlString = r.ReadToEnd();
+         
+                //var yaml = new DeserializerBuilder().Build().Deserialize(
+                //    new StringReader(yamlString)
+                //);
 
-                var serializer = new SerializerBuilder()
-                    .JsonCompatible()
-                    .Build();
+                //var serializer = new SerializerBuilder()
+                //    .JsonCompatible()
+                //    .Build();
 
-                var jsonString = serializer.Serialize(yaml);
+                //var jsonString = serializer.Serialize(yaml);
+                
+                var jsonString = LoadYamlToJsonPython(file);
 
                 var jsonObject = JObject.Parse(jsonString);
                 return jsonObject;
