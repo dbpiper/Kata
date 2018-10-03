@@ -1,6 +1,48 @@
 ---
 Kingdoms:
 - Taxon_Name: Plantae
+  Content:
+    Taxonomic_Rank: Clade
+    Content:
+    - Taxon_Name: Viridiplantae
+      Content:
+        Taxonomic_Rank: Superdivision
+        Content:
+        - Taxon_Name: Chlorokybophyta
+        - Taxon_Name: Mesostigmatophyta
+        - Taxon_Name: Streptophyta   # AKA Charophyta
+          Content:
+            Taxonomic_Rank: Clade
+            Content:
+            - Taxon_Name: Klebsormidiophyceae
+            - Taxon_Name: Phragmoplastophyta
+              Content:
+                Taxonomic_Rank: Clade
+                Content:
+                - Taxon_Name: Charophyceae
+                  Content:
+                    Taxonomic_Rank: Order
+                    Content:
+                    - Taxon_Name: Charales
+                      Content:
+                        Taxonomic_Rank: Family
+                        Content:
+                        - Taxon_Name: Characeae
+                          Content:
+                            Taxonomic_Rank: Genus
+                            Content:  # has others, but they have no wikipedia entries and thus likely no images/info that is easy to obtain
+                            - Taxon_Name: Chara
+                            - Taxon_Name: Nitella
+                              Content:
+                                Taxonomic_Rank: Species
+                                Content:
+                                - Taxon_Name: Nitella flexilis
+                                - Taxon_Name: Nitella opaca
+                - Taxon_Name: Coleochaetophyceae
+                - Taxon_Name: Zygnematophyceae
+                  # unicellular- Taxon_Name: Mesotaeniaceae
+                - Taxon_Name: Embryophyta
+        - Taxon_Name: Chlorophyta
 - Taxon_Name: Animalia
   Content:
     Taxonomic_Rank: Plyla

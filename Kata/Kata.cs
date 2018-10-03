@@ -77,6 +77,12 @@ namespace Kata {
             process.Start();
 
             string jsonString = process.StandardOutput.ReadToEnd();
+            string error = process.StandardError.ReadToEnd();
+
+            if (error.Length > 0) {
+                MessageBox.Show(error);
+            }
+            
             process.WaitForExit();
 
 
