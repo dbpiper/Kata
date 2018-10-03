@@ -10,11 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YamlDotNet.Serialization;
 
-namespace Kata {
-    public partial class Kata : Form {
+namespace Kata
+{
+    public partial class Kata : Form
+    {
 
-        private enum KataTypes : byte {
+        private enum KataTypes : byte
+        {
             Drawabox,
             Music
         };
@@ -34,11 +38,13 @@ namespace Kata {
 
         private bool _resuming = false;
 
-        public Kata() {
+        public Kata()
+        {
             InitializeComponent();
         }
 
-        private void PopulateList(string filePath) {
+        private void PopulateList(string filePath)
+        {
             dynamic katas = LoadYaml(filePath);
             JArray array = JArray.Parse(katas.Lessons.List.ToString());
             // ReSharper disable once CoVariantArrayConversion
@@ -55,7 +61,7 @@ namespace Kata {
                 } else {
                     return "";
                 }
- 
+
             }
         }
         private string LoadYamlToJsonPython(string yamlFileName)
@@ -63,9 +69,8 @@ namespace Kata {
             string pythonFileName = @"Configuration\Helper_Code\YamlToJson.py";
 
             Process process = new Process();
-            process.StartInfo = new ProcessStartInfo
-            {
-                FileName = GetPythonPath(), 
+            process.StartInfo = new ProcessStartInfo {
+                FileName = GetPythonPath(),
                 Arguments = $"{pythonFileName} {yamlFileName}",
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
@@ -82,43 +87,54 @@ namespace Kata {
             if (error.Length > 0) {
                 MessageBox.Show(error);
             }
-            
+
             process.WaitForExit();
 
 
             return jsonString;
         }
 
-        private dynamic LoadYaml(string file) {
+        private dynamic LoadYaml(string file)
+        {
             using (StreamReader r = new StreamReader(file)) {
-                // Old YamlDotNet API access
+                string yamlstring = r.ReadToEnd();
+
+                var yamlObject = new DeserializerBuilder().Build().Deserialize(
+                    new StringReader(yamlstring)
+                );
+
+                //var jsonString = LoadYamlToJsonPython(file);
+                // Old YamlDotNet serializer, needs support for Aliases in JSON
                 //
-                //string yamlString = r.ReadToEnd();
-         
-                //var yaml = new DeserializerBuilder().Build().Deserialize(
-                //    new StringReader(yamlString)
-                //);
+                /*
+                var serializer = new SerializerBuilder()
+                    .JsonCompatible()
+                    .WithMaximumRecursion(200)
+                    .Build();
 
-                //var serializer = new SerializerBuilder()
-                //    .JsonCompatible()
-                //    .Build();
+                var jsonString = serializer.Serialize(yamlObject);
+                */
 
-                //var jsonString = serializer.Serialize(yaml);
+                var serializer = new Newtonsoft.Json.JsonSerializer();
+                var jsonStringWriter = new StringWriter();
+                serializer.Serialize(jsonStringWriter, yamlObject);
+                var jsonString = jsonStringWriter.ToString();
                 
-                var jsonString = LoadYamlToJsonPython(file);
-
+                
                 var jsonObject = JObject.Parse(jsonString);
                 return jsonObject;
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e) {                  
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
             //comboBoxKataType.DropDownStyle = ComboBoxStyle.DropDownList;
             //comboBoxLesson.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void comboBoxLesson_SelectedIndexChanged(object sender, EventArgs e) {
+        private void comboBoxLesson_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 
@@ -128,7 +144,7 @@ namespace Kata {
             try {
                 fs = new FileStream("Configuration\\selections.txt", FileMode.Create);
                 using (StreamWriter writer = new StreamWriter(fs)) {
-                    while(_saveSelections.Count > 0) {
+                    while (_saveSelections.Count > 0) {
                         writer.WriteLine(_saveSelections.Dequeue().ToString());
                     }
                 }
@@ -141,13 +157,13 @@ namespace Kata {
             buttonResume.Visible = true;
             ResetQueues();
         }
-        
+
         private void ReadSelections()
         {
             ResetQueues();
             using (StreamReader reader = new StreamReader("Configuration\\selections.txt")) {
                 string line = "";
-                while((line = reader.ReadLine()) != null) {
+                while ((line = reader.ReadLine()) != null) {
                     int lineValue = 0;
                     if (Int32.TryParse(line, out lineValue)) {
                         _resumeSelections.Enqueue(lineValue);
@@ -172,18 +188,21 @@ namespace Kata {
             return rng.Next(0, max + 1);
         }
 
-        private int SelectLessonNum(dynamic katas) {
+        private int SelectLessonNum(dynamic katas)
+        {
             int numLessons = katas.Lessons.Content.Count;
             return RandomNumber(numLessons - 1);
         }
 
-        private int SelectExerciseNum(dynamic lesson) {
+        private int SelectExerciseNum(dynamic lesson)
+        {
             int numExercises = lesson.Exercises.Count;
             int exerciseNum = RandomNumber(numExercises - 1);
             return exerciseNum;
         }
 
-        private dynamic SelectEverydayObject(int exerciseNum) {
+        private dynamic SelectEverydayObject(int exerciseNum)
+        {
             string everydayObjectsFile = "Configuration\\YAML\\EverydayObjects.yaml";
             dynamic everydayObjects = LoadYaml(everydayObjectsFile);
 
@@ -191,7 +210,7 @@ namespace Kata {
             int exerciseCount = everydayObjectGroup.Content.Count;
 
             int subExerciseNum = RandomNumber(exerciseCount - 1);
-            return everydayObjectGroup.Content[subExerciseNum]; 
+            return everydayObjectGroup.Content[subExerciseNum];
         }
 
         private dynamic GetAnimaliaPhylum(dynamic phyla, int lessonNum)
@@ -311,7 +330,7 @@ namespace Kata {
                         (
                             lessonNum == (byte)KataLessons.Animals ||
                             lessonNum == (byte)KataLessons.Insects
-                        )   
+                        )
                     ) {
                         selectedKingdom = kingdom;
                         selectedKingdomIndex = i;
@@ -337,7 +356,7 @@ namespace Kata {
             dynamic species = LoadYaml(speciesFile);
             dynamic kingdom = GetKingdom(species.Kingdoms, lessonNum);
 
-            switch(lessonNum) {
+            switch (lessonNum) {
             case (byte)KataLessons.Plants:
                 return SelectPlant(kingdom, exercise, exerciseNum);
             case (byte)KataLessons.Insects:
@@ -349,15 +368,15 @@ namespace Kata {
                 return "";
             }
         }
-        
+
         private int GetLessonNum(dynamic katas)
         {
             int lessonNum = 0;
             if (comboBoxLesson.SelectedIndex >= 0) { // handles selecting from only one lesson, for now
-                lessonNum = comboBoxLesson.SelectedIndex;        
+                lessonNum = comboBoxLesson.SelectedIndex;
             } else {
                 if (_resuming && _resumeSelections.Count > 0) {
-                   lessonNum = _resumeSelections.Dequeue();
+                    lessonNum = _resumeSelections.Dequeue();
                 } else {
                     _resuming = false;
                     lessonNum = SelectLessonNum(katas);
@@ -380,20 +399,21 @@ namespace Kata {
             return exerciseNum;
         }
 
-        private void PickDrawaboxExerciseRandomly() {
+        private void PickDrawaboxExerciseRandomly()
+        {
             string kataFile = "Configuration\\YAML\\DrawaboxKatas.yaml";
             dynamic katas = LoadYaml(kataFile);
 
             int lessonNum = GetLessonNum(katas);
             dynamic lesson = null;
-            lesson = katas.Lessons.Content[lessonNum]; 
+            lesson = katas.Lessons.Content[lessonNum];
 
             int exerciseNum = GetExerciseNum(lesson);
             dynamic exercise = lesson.Exercises[exerciseNum];
             dynamic subExercise = null;
-            
+
             if (lessonNum == (byte)KataLessons.Objects) {
-                subExercise = SelectEverydayObject(exerciseNum);  
+                subExercise = SelectEverydayObject(exerciseNum);
             } else if (lessonNum == (byte)KataLessons.Animals ||
                     lessonNum == (byte)KataLessons.Insects ||
                     (lessonNum == (byte)KataLessons.Plants && exerciseNum == 2) //Kingdom Plantae exercise
@@ -413,7 +433,8 @@ namespace Kata {
             labelResult.Text = message;
         }
 
-        private void PickMusicExerciseRandomly() {
+        private void PickMusicExerciseRandomly()
+        {
             string musicKataFile = "Configuration\\YAML\\Music.yaml";
             dynamic musicKatas = LoadYaml(musicKataFile);
 
@@ -428,7 +449,8 @@ namespace Kata {
             labelResult.Text = message;
         }
 
-        private void buttonRandomSelect_Click(object sender, EventArgs e) {
+        private void buttonRandomSelect_Click(object sender, EventArgs e)
+        {
             switch (comboBoxKataType.SelectedIndex) {
             case (byte)KataTypes.Drawabox:
                 PickDrawaboxExerciseRandomly();
@@ -439,19 +461,22 @@ namespace Kata {
             default:
                 labelResult.Text = "Cannot select Kata: No Kata Type selected yet. Please select a Kata Type from the dropdown above.";
                 break;
-                
+
             }
         }
 
-        private void button3_Click(object sender, EventArgs e) {
+        private void button3_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void labelResult_Click(object sender, EventArgs e) {
+        private void labelResult_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void comboBoxKataType_SelectedIndexChanged(object sender, EventArgs e) {
+        private void comboBoxKataType_SelectedIndexChanged(object sender, EventArgs e)
+        {
             if (comboBoxKataType.SelectedIndex == (byte)KataTypes.Music) {
                 comboBoxLesson.Visible = false;
             } else {
@@ -460,7 +485,7 @@ namespace Kata {
             }
 
         }
-    
+
         private void ResetResultText()
         {
             labelResult.ResetText();
@@ -479,7 +504,8 @@ namespace Kata {
             ResetResultText();
         }
 
-        private void button1_Click_1(object sender, EventArgs e) {
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             Reset();
         }
 

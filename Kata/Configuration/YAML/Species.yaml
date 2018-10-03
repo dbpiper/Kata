@@ -10,12 +10,14 @@ Kingdoms:
         Content:
         - Taxon_Name: Chlorokybophyta
         - Taxon_Name: Mesostigmatophyta
-        - Taxon_Name: Streptophyta   # AKA Charophyta
+        - &streptophyta
+          Taxon_Name: Streptophyta   # AKA Charophyta
           Content:
             Taxonomic_Rank: Clade
             Content:
             - Taxon_Name: Klebsormidiophyceae
-            - Taxon_Name: Phragmoplastophyta
+            - &phragmoplastophyta
+              Taxon_Name: Phragmoplastophyta
               Content:
                 Taxonomic_Rank: Clade
                 Content:
@@ -46,6 +48,11 @@ Kingdoms:
                 - *embryophyta
                 - *embryophyta
                 - *embryophyta
+            - *phragmoplastophyta
+            - *phragmoplastophyta
+        - *streptophyta
+        - *streptophyta
+        - *streptophyta
         - Taxon_Name: Chlorophyta
 - Taxon_Name: Animalia
   Content:
