@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Kata.Properties;
 using YamlDotNet.Serialization;
 
 namespace Kata
@@ -51,7 +52,7 @@ namespace Kata
             comboBoxLesson.Items.AddRange(array.ToObject<List<string>>().ToArray());
         }
 
-        private string GetPythonPath()
+        private static string GetPythonPath()
         {
 
             using (StreamReader reader = new StreamReader(@"Configuration\Helper_Code\python_path.txt")) {
@@ -94,7 +95,7 @@ namespace Kata
             return jsonString;
         }
 
-        private dynamic LoadYaml(string file)
+        private static dynamic LoadYaml(string file)
         {
             using (StreamReader r = new StreamReader(file)) {
                 string yamlstring = r.ReadToEnd();
@@ -155,7 +156,7 @@ namespace Kata
                     fs.Dispose();
                 }
             }
-            MessageBox.Show("Partial taxonomy selected for species sub-exercies, please enter more information to continue and press \"Resume Selection\" to continue.");
+            MessageBox.Show(Resources.Kata_SaveSelections_Partial_taxonomy_selected_for_species_sub_exercies__please_enter_more_information_to_continue_and_press__Resume_Selection__to_continue_);
             buttonResume.Visible = true;
             ResetQueues();
         }
@@ -166,8 +167,7 @@ namespace Kata
             using (StreamReader reader = new StreamReader("Configuration\\selections.txt")) {
                 string line = "";
                 while ((line = reader.ReadLine()) != null) {
-                    int lineValue = 0;
-                    if (Int32.TryParse(line, out lineValue)) {
+                    if (int.TryParse(line, out var lineValue)) {
                         _resumeSelections.Enqueue(lineValue);
                     } else {
                         throw new Exception("Error parsing line from selections.txt!");
@@ -205,7 +205,7 @@ namespace Kata
 
         private dynamic SelectEverydayObject(int exerciseNum)
         {
-            string everydayObjectsFile = "Configuration\\YAML\\EverydayObjects.yaml";
+            const string everydayObjectsFile = "Configuration\\YAML\\EverydayObjects.yaml";
             dynamic everydayObjects = LoadYaml(everydayObjectsFile);
 
             dynamic everydayObjectGroup = everydayObjects["Everyday Objects"][exerciseNum];
@@ -324,20 +324,15 @@ namespace Kata
                 _resuming = false;
                 int i = 0;
                 foreach (dynamic kingdom in kingdoms) {
-                    if (kingdom.Taxon_Name == "Plantae" &&
-                        lessonNum == (byte)KataLessons.Plants
-                    ) {
+                    if (kingdom.Taxon_Name == "Plantae" && lessonNum == (byte) KataLessons.Plants) {
                         selectedKingdom = kingdom;
                         selectedKingdomIndex = i;
-                    } else if (kingdom.Taxon_Name == "Animalia" &&
-                        (
-                            lessonNum == (byte)KataLessons.Animals ||
-                            lessonNum == (byte)KataLessons.Insects
-                        )
-                    ) {
+                    } else if (kingdom.Taxon_Name == "Animalia" && (lessonNum == (byte) KataLessons.Animals ||
+                                                                    lessonNum == (byte) KataLessons.Insects)) {
                         selectedKingdom = kingdom;
                         selectedKingdomIndex = i;
                     }
+
                     i++;
                 }
 
@@ -353,7 +348,7 @@ namespace Kata
             try {
                 File.Copy("../../" + speciesFile, speciesFile, true);
             } catch (Exception e) {
-                MessageBox.Show("Error: could not update Species.yaml! -- " + e.InnerException);
+                MessageBox.Show(Resources.Kata_SelectSpecies_Error__could_not_update_Species_yaml_____ + e.InnerException);
             }
 
             dynamic species = LoadYaml(speciesFile);
@@ -367,7 +362,7 @@ namespace Kata
             case (byte)KataLessons.Animals:
                 return SelectAnimal(kingdom, exercise, exerciseNum);
             default:
-                MessageBox.Show("Error, incorrect lesson!");
+                MessageBox.Show(Resources.Kata_SelectSpecies_Error__incorrect_lesson_);
                 return "";
             }
         }
@@ -404,7 +399,7 @@ namespace Kata
 
         private void PickDrawaboxExerciseRandomly()
         {
-            string kataFile = "Configuration\\YAML\\DrawaboxKatas.yaml";
+            const string kataFile = "Configuration\\YAML\\DrawaboxKatas.yaml";
             dynamic katas = LoadYaml(kataFile);
 
             int lessonNum = GetLessonNum(katas);
@@ -415,13 +410,19 @@ namespace Kata
             dynamic exercise = lesson.Exercises[exerciseNum];
             dynamic subExercise = null;
 
-            if (lessonNum == (byte)KataLessons.Objects) {
+            switch (lessonNum) {
+            case (byte)KataLessons.Objects:
                 subExercise = SelectEverydayObject(exerciseNum);
-            } else if (lessonNum == (byte)KataLessons.Animals ||
-                    lessonNum == (byte)KataLessons.Insects ||
-                    (lessonNum == (byte)KataLessons.Plants && exerciseNum == 2) //Kingdom Plantae exercise
-                    ) {
+                break;
+            case (byte)KataLessons.Animals:
+            case (byte)KataLessons.Insects:
+            //Kingdom Plantae exercise
+            case (byte)KataLessons.Plants when exerciseNum == 2:
                 subExercise = SelectSpecies(exercise, lessonNum, exerciseNum);
+                break;
+            default:
+                // lesson has no sub-exercise
+                break;
             }
 
             string messageExercise = string.Format("Lesson: {0}\nExercise: {1}", lesson.Name, exercise);
@@ -438,7 +439,7 @@ namespace Kata
 
         private void PickMusicExerciseRandomly()
         {
-            string musicKataFile = "Configuration\\YAML\\Music.yaml";
+            const string musicKataFile = "Configuration\\YAML\\Music.yaml";
             dynamic musicKatas = LoadYaml(musicKataFile);
 
             int bpmIndex = RandomNumber(musicKatas.BPM.Count - 1);
@@ -447,7 +448,7 @@ namespace Kata
             int keyIndex = RandomNumber(musicKatas.Key.Count - 1);
             string key = musicKatas.Key[keyIndex];
 
-            string message = string.Format("BPM - {0}\nKey - {1}", bpm, key);
+            string message = $"BPM - {bpm}\nKey - {key}";
 
             labelResult.Text = message;
         }
@@ -462,7 +463,7 @@ namespace Kata
                 PickMusicExerciseRandomly();
                 break;
             default:
-                labelResult.Text = "Cannot select Kata: No Kata Type selected yet. Please select a Kata Type from the dropdown above.";
+                labelResult.Text = Resources.String_Error_NoKatTypeSelected;
                 break;
 
             }
@@ -492,27 +493,27 @@ namespace Kata
         private void ResetResultText()
         {
             labelResult.ResetText();
-            labelResult.Text = "Selected Kata";
+            labelResult.Text = Resources.String_SelectedKata;
         }
         private void Reset()
         {
             comboBoxKataType.ResetText();
             comboBoxKataType.SelectedIndex = -1;
-            comboBoxKataType.Text = "Kata Type";
+            comboBoxKataType.Text = Resources.String_KataType;
 
             comboBoxLesson.ResetText();
             comboBoxLesson.SelectedIndex = -1;
-            comboBoxLesson.Text = "Only Choose From Specific Lesson";
+            comboBoxLesson.Text = Resources.String_OnlyOneLesson;
 
             ResetResultText();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void Button1_Click_1(object sender, EventArgs e)
         {
             Reset();
         }
 
-        private void buttonResume_Click(object sender, EventArgs e)
+        private void ButtonResume_Click(object sender, EventArgs e)
         {
             ResetResultText();
             ReadSelections();

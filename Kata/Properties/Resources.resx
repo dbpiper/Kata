@@ -114,4 +114,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Kata_SelectSpecies_Error__incorrect_lesson_" xml:space="preserve">
+    <value>Error, incorrect lesson!</value>
+  </data>
+  <data name="Kata_SelectSpecies_Error__could_not_update_Species_yaml_____" xml:space="preserve">
+    <value>Error: could not update Species.yaml! -- </value>
+  </data>
+  <data name="Kata_SaveSelections_Partial_taxonomy_selected_for_species_sub_exercies__please_enter_more_information_to_continue_and_press__Resume_Selection__to_continue_" xml:space="preserve">
+    <value>Partial taxonomy selected for species sub-exercies, please enter more information to continue and press "Resume Selection" to continue.</value>
+  </data>
+  <data name="String_Error_NoKatTypeSelected" xml:space="preserve">
+    <value>Cannot select Kata: No Kata Type selected yet. Please select a Kata Type from the dropdown above.</value>
+  </data>
+  <data name="String_SelectedKata" xml:space="preserve">
+    <value>Selected Kata</value>
+  </data>
+  <data name="String_KataType" xml:space="preserve">
+    <value>Kata Type</value>
+  </data>
+  <data name="String_OnlyOneLesson" xml:space="preserve">
+    <value>Only Choose From Specific Lesson</value>
+  </data>
 </root>

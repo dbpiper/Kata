@@ -105,7 +105,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // buttonResume
             // 
@@ -116,7 +116,7 @@
             this.buttonResume.TabIndex = 6;
             this.buttonResume.Text = "Resume Selection";
             this.buttonResume.UseVisualStyleBackColor = false;
-            this.buttonResume.Click += new System.EventHandler(this.buttonResume_Click);
+            this.buttonResume.Click += new System.EventHandler(this.ButtonResume_Click);
             // 
             // Kata
             // 
