@@ -106,6 +106,7 @@ namespace Kata
                 //var jsonString = LoadYamlToJsonPython(file);
                 // Old YamlDotNet serializer, needs support for Aliases in JSON
                 //
+                
                 /*
                 var serializer = new SerializerBuilder()
                     .JsonCompatible()
@@ -114,12 +115,13 @@ namespace Kata
 
                 var jsonString = serializer.Serialize(yamlObject);
                 */
-
+                
+                
                 var serializer = new Newtonsoft.Json.JsonSerializer();
                 var jsonStringWriter = new StringWriter();
                 serializer.Serialize(jsonStringWriter, yamlObject);
                 var jsonString = jsonStringWriter.ToString();
-                
+               
                 
                 var jsonObject = JObject.Parse(jsonString);
                 return jsonObject;
@@ -299,7 +301,8 @@ namespace Kata
                     return taxonString + " " + currentTaxon.Taxon_Name.ToString();
                 }
             } catch (Exception e) {
-                MessageBox.Show("Could not descend taxon: got error " + e);
+                MessageBox.Show("Could not descend taxon: got error " + e.InnerException
+                                + " with taxon:" + currentTaxon + " and string: " + taxonString);
                 return "";
             }
         }
