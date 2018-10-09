@@ -229,7 +229,7 @@ Kingdoms:
           Content:
             Taxonomic_Rank: Class
             Content:
-            - Taxon_Name: Leptocardii       # had an error here!
+            - Taxon_Name: Leptocardii
               Content:
                 Taxonomic_Rank: Order
                 Content:
@@ -238,6 +238,15 @@ Kingdoms:
                     Taxonomic_Rank: Family
                     Content:
                     - Taxon_Name: Asymmetronidae
+                      Content:
+                        Taxonomic_Rank: Genus
+                        Content:
+                          - Taxon_Name: Asymmetron
+                            Content:
+                              Taxonomic_Rank: Species
+                              Content:
+                              - Taxon_Name: Asymmetron lucayanum
+                          - Taxon_Name: Epigonichthys
                     - Taxon_Name: Branchiostomidae
         - Taxon_Name: Olfactores
           Content:
