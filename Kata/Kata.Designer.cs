@@ -59,7 +59,7 @@
             // 
             this.labelResult.AutoSize = true;
             this.labelResult.Location = new System.Drawing.Point(72, 257);
-            this.labelResult.MaximumSize = new System.Drawing.Size(300, 80);
+            this.labelResult.MaximumSize = new System.Drawing.Size(300, 250);
             this.labelResult.Name = "labelResult";
             this.labelResult.Size = new System.Drawing.Size(74, 13);
             this.labelResult.TabIndex = 2;
@@ -99,7 +99,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aquamarine;
-            this.button1.Location = new System.Drawing.Point(75, 382);
+            this.button1.Location = new System.Drawing.Point(75, 551);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 27);
             this.button1.TabIndex = 5;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 450);
+            this.ClientSize = new System.Drawing.Size(605, 623);
             this.Controls.Add(this.buttonResume);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxKataType);
