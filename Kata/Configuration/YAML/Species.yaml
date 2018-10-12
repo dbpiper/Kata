@@ -218,6 +218,14 @@ Kingdoms:
         - Taxon_Name: Branchiopoda
         - Taxon_Name: Remipedia
         - Taxon_Name: Cepalocarida
+          Content:
+            Taxonomic_Rank: Genus
+            Content:
+            - Taxon_Name: Hutchinsoniella
+              Content:
+                Taxonomic_Rank: Species
+                Content:
+                - Taxon_Name: Hutchinsoniella macracantha
         - Taxon_Name: Maxillopoda
         - Taxon_Name: Ostracoda
         - Taxon_Name: Malacostraca
