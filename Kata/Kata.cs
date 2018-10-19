@@ -279,7 +279,7 @@ namespace Kata
                 int taxonNum = GetTaxonNum(taxonomicRank);
                 dynamic taxon = taxonomicRank.Content[taxonNum];
 
-                if (taxonomicRank.Taxonomic_Rank == "Species") {
+                if (taxonomicRank.Taxonomic_Rank == "Species" || taxonomicRank["Bottom"] != null) {
                     // we're done!
                     return taxon.Taxon_Name;
                 } else {
@@ -407,7 +407,14 @@ namespace Kata
             lesson = katas.Lessons.Content[lessonNum];
 
             int exerciseNum = GetExerciseNum(lesson);
-            dynamic exercise = lesson.Exercises[exerciseNum];
+
+            dynamic exercise = null;
+                
+            if (exerciseNum <= lesson.Exercises.Count - 1) {
+                exercise = lesson.Exercises[exerciseNum];
+            } else {
+                MessageBox.Show($@"Error, exercise {exerciseNum} out of bounds, size: {lesson.Exercise.Count}!");
+            }
             dynamic subExercise = null;
 
             switch (lessonNum) {
