@@ -298,17 +298,58 @@ Kingdoms:
                                                                                                                   Content:
                                                                                                                     Taxonomic_Rank: Family
                                                                                                                     Content:
-                                                                                                                      - Taxon_Name: Ornithorhynchidae
+                                                                                                                    - Taxon_Name: Ornithorhynchidae
+                                                                                                                      Content:
+                                                                                                                        Taxonomic_Rank: Genus
                                                                                                                         Content:
-                                                                                                                          Taxonomic_Rank: Genus
+                                                                                                                        - Taxon_Name: Ornithorhynchus
                                                                                                                           Content:
-                                                                                                                          - Taxon_Name: Ornithorhynchus
+                                                                                                                            Taxonomic_Rank: Species
                                                                                                                             Content:
-                                                                                                                              Taxonomic_Rank: Species
-                                                                                                                              Content:
-                                                                                                                              - Taxon_Name: Ornithorhynchus anatinus (platypus)
+                                                                                                                            - Taxon_Name: Ornithorhynchus anatinus (platypus)
                                                                                                                 - Taxon_Name: Tachyglossa
                                                                                                             - Taxon_Name: Theria
+                                                                                                              Content:
+                                                                                                                Taxonomic_Rank: Clade
+                                                                                                                Content:
+                                                                                                                - Taxon_Name: Eutheria
+                                                                                                                - Taxon_Name: Metatheria
+                                                                                                                  Content:
+                                                                                                                    Taxonomic_Rank: Infraclass
+                                                                                                                    Content:
+                                                                                                                    - Taxon_Name: Marsupialia
+                                                                                                                      Content:
+                                                                                                                        Taxonomic_Rank: Superorder
+                                                                                                                        Content:
+                                                                                                                        - Taxon_Name: Ameridelphia
+                                                                                                                          Content:
+                                                                                                                            Taxonomic_Rank: Order
+                                                                                                                            Content:
+                                                                                                                            - Taxon_Name: Didelphimorphia
+                                                                                                                            - Taxon_Name: Paucituberculata
+                                                                                                                              Content:
+                                                                                                                                Taxonomic_Rank: Family
+                                                                                                                                Content:
+                                                                                                                                - Taxon_Name: Caenolestidae (Shrew opossum)
+                                                                                                                                  Content:
+                                                                                                                                    Taxonomic_Rank: Genus
+                                                                                                                                    Content:
+                                                                                                                                    - Taxon_Name: Caenolestes
+                                                                                                                                    - Taxon_Name: Lestoros
+                                                                                                                                    - Taxon_Name: Rhyncholestes
+                                                                                                                                      Content:
+                                                                                                                                        Taxonomic_Rank: Species
+                                                                                                                                        Content:
+                                                                                                                                        - Taxon_Name: Long-nosed caenolestid (Rhyncholestes raphanurus)
+                                                                                                                        - Taxon_Name: Australidelphia
+                                                                                                                          Content:
+                                                                                                                            Taxonomic_Rank: Order
+                                                                                                                            Content:
+                                                                                                                            - Taxon_Name: Microbiotheria
+                                                                                                                            - Taxon_Name: Dasyuromorphia
+                                                                                                                            - Taxon_Name: Peramelemorphia
+                                                                                                                            - Taxon_Name: Notoryctemorphia
+                                                                                                                            - Taxon_Name: Diprotodontia
                                                                                                             
 
                                           - *synapsida
