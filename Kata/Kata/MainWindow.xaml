@@ -7,12 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="716.186" Width="800">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="28,36,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="28,108,0,0" VerticalAlignment="Top" Width="526"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="28,155,0,0" VerticalAlignment="Top" Width="75" Height="55"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="28,243,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="634,243,0,0" VerticalAlignment="Top" Width="75" Height="55"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="28,634,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <ComboBox x:Name="KataType" HorizontalAlignment="Left" Margin="28,36,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+            <ComboBoxItem Content="Kata Type" />
+            <ComboBoxItem Content="Drawabox" />
+            <ComboBoxItem Content="Music" />
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Margin="28,108,0,0" VerticalAlignment="Top" Width="526">
+            <ComboBoxItem Content="Only Choose From Specific Lesson"/>
+        </ComboBox>
+        <Button x:Name="ButtonRandomlySelect" Content="Randomly&#x0a;Select" HorizontalAlignment="Left" Margin="28,155,0,0" VerticalAlignment="Top" Width="75" Height="55"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Background="#00FFFF"
+                />
+        <Label Content="Selected Kata" HorizontalAlignment="Left" Margin="28,243,0,0" VerticalAlignment="Top"/>
+        <Button Content="Resume&#x0a;Selection" HorizontalAlignment="Left" Margin="634,243,0,0" VerticalAlignment="Top" Width="75" Height="55"
+                Background="#98FB98" 
+                />
+        <Button Content="Reset" HorizontalAlignment="Left" Margin="28,634,0,0" VerticalAlignment="Top" Width="75" Height="27"
+                Background="#7FFFD4"
+                />
 
     </Grid>
 </Window>
