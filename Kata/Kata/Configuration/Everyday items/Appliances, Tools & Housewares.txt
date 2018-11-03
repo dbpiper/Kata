@@ -1,0 +1,64 @@
+ 0: Pill box
+ 1: Books
+ 2: AC unit/heater
+ 3: Dehumidifier
+ 4: Backpack
+ 5: Toolbox
+ 6: Water bottles/cups
+ 7: Briefcases
+ 8: Cat food dish
+ 9: Litter box
+10: Shoes
+11: Washing machine
+12: Clothes drying machine
+13: Dishwasher
+14: Dog food bowl
+15: Dog water bowl
+16: Flashlight
+17: Microwave
+18: Refrigerator
+19: Stove/Oven
+20: Hammer
+21: Wrench
+22: Screwdriver
+23: Pan
+24: Pot
+25: Skillet
+26: Tea kettle
+27: Blender
+28: Salt/pepper shaker
+29: Pen/pencil
+30: Paper
+31: Bar of soap
+32: Liquid soap
+33: Coffee maker
+34: Tea strainer
+35: Water pitcher
+36: Guitar
+37: Magazine
+38: Vacuum cleaner
+39: Mop/Broom
+40: Shampoo bottle
+41: Clothes
+42: Umbrella
+43: Tea cup
+44: Milk carton
+45: Plate
+46: Bowl
+47: Silverware
+48: Weights/Exercise equipment
+49: Baby's high chair
+50: Bird cage
+51: Trash can
+52: Weed eater
+53: Rake
+54: Shovel
+55: Ladder
+56: Concrete block
+57: Bucket
+58: Grill
+59: Helmet
+60: Bicycle
+61: Thermostat
+62: Toaster
+63: Shaving Cream Can
