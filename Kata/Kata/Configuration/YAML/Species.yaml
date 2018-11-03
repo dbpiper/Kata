@@ -1,0 +1,377 @@
+---
+Kingdoms:
+- Taxon_Name: Plantae
+  Content:
+    Taxonomic_Rank: Clade
+    Content:
+    - Taxon_Name: Viridiplantae
+      Content:
+        Taxonomic_Rank: Superdivision
+        Content:
+        - Taxon_Name: Chlorokybophyta
+        - Taxon_Name: Mesostigmatophyta
+        - &streptophyta
+          Taxon_Name: Streptophyta   # AKA Charophyta
+          Content:
+            Taxonomic_Rank: Clade
+            Content:
+            - Taxon_Name: Klebsormidiophyceae
+            - &phragmoplastophyta
+              Taxon_Name: Phragmoplastophyta
+              Content:
+                Taxonomic_Rank: Clade
+                Content:
+                - Taxon_Name: Charophyceae
+                  Content:
+                    Taxonomic_Rank: Order
+                    Content:
+                    - Taxon_Name: Charales
+                      Content:
+                        Taxonomic_Rank: Family
+                        Content:
+                        - Taxon_Name: Characeae
+                          Content:
+                            Taxonomic_Rank: Genus
+                            Content:  # has others, but they have no wikipedia entries and thus likely no images/info that is easy to obtain
+                            - Taxon_Name: Chara
+                            - Taxon_Name: Nitella
+                              Content:
+                                Taxonomic_Rank: Species
+                                Content:
+                                - Taxon_Name: Nitella flexilis
+                                - Taxon_Name: Nitella opaca
+                - Taxon_Name: Coleochaetophyceae
+                - Taxon_Name: Zygnematophyceae
+                  # unicellular- Taxon_Name: Mesotaeniaceae
+                - &embryophyta
+                  Taxon_Name: Embryophyta
+                - *embryophyta
+                - *embryophyta
+                - *embryophyta
+            - *phragmoplastophyta
+            - *phragmoplastophyta
+        - *streptophyta
+        - *streptophyta
+        - *streptophyta
+        - Taxon_Name: Chlorophyta
+- Taxon_Name: Animalia
+  Content:
+    Taxonomic_Rank: Plyla
+    Content:
+    - Taxon_Name: Arthropoda
+      Content:
+        Taxonomic_Rank: Class
+        Content:
+        - Taxon_Name: Insecta
+          Content:
+            Taxonomic_Rank: Order
+            Content:
+            - Taxon_Name: Archaeognatha
+            - Taxon_Name: Zygentoma
+            - Taxon_Name: Odonata
+            - Taxon_Name: Ephemeroptera
+            - Taxon_Name: Hemiptera
+            - Taxon_Name: Psocodea
+            - Taxon_Name: Thysanoptera
+            - Taxon_Name: Coleoptera
+            - Taxon_Name: Diptera
+            - Taxon_Name: Hymenoptera
+            - Taxon_Name: Lepidoptera
+            - Taxon_Name: Mecoptera
+            - Taxon_Name: Megaloptera
+            - Taxon_Name: Neuroptera
+            - Taxon_Name: Raphidioptera
+            - Taxon_Name: Siphonaptera
+            - Taxon_Name: Strepsiptera
+            - Taxon_Name: Trichoptera
+            - Taxon_Name: Dermaptera
+            - Taxon_Name: Embioptera
+            - Taxon_Name: Notoptera
+            - Taxon_Name: Orthoptera
+            - Taxon_Name: Titanoptera
+            - Taxon_Name: Phasmatodea
+            - Taxon_Name: Plecoptera
+            - Taxon_Name: Zoraptera
+            - Taxon_Name: Blattodea
+        - Taxon_Name: Entognatha
+        - Taxon_Name: Arachnida
+        - Taxon_Name: Merostomata
+        - Taxon_Name: Pycnogonida
+        - Taxon_Name: Chilopoda
+          Content:
+            Taxonomic_Rank: Order
+            Content:
+            - Taxon_Name: Scutigeromorpha
+            - Taxon_Name: Lithobiomorpha
+            - Taxon_Name: Craterostigmomorpha
+            - Taxon_Name: Scolopendromorpha
+            - Taxon_Name: Geophilomorpha
+        - Taxon_Name: Diplopoda
+        - Taxon_Name: Pauropoda
+        - Taxon_Name: Symphyla
+          Content:
+            Taxonomic_Rank: Family
+            Bottom: true
+            Content:
+            - Taxon_Name: Scutigerellidae
+            - Taxon_Name: Scolopendrellidae
+        - Taxon_Name: Branchiopoda
+        - Taxon_Name: Remipedia
+        - Taxon_Name: Cepalocarida
+          Content:
+            Taxonomic_Rank: Genus
+            Content:
+            - Taxon_Name: Hutchinsoniella
+              Content:
+                Taxonomic_Rank: Species
+                Content:
+                - Taxon_Name: Hutchinsoniella macracantha
+        - Taxon_Name: Malacostraca
+    - Taxon_Name: Chordata
+      Content:
+        Taxonomic_Rank: Subphylum/Clade
+        Content:
+        - Taxon_Name: Cephalochordata
+          Content:
+            Taxonomic_Rank: Class
+            Content:
+            - Taxon_Name: Leptocardii
+              Content:
+                Taxonomic_Rank: Order
+                Content:
+                - Taxon_Name: Amphioxiformes
+                  Content:
+                    Taxonomic_Rank: Family
+                    Content:
+                    - Taxon_Name: Asymmetronidae
+                      Content:
+                        Taxonomic_Rank: Genus
+                        Content:
+                          - Taxon_Name: Asymmetron
+                            Content:
+                              Taxonomic_Rank: Species
+                              Content:
+                              - Taxon_Name: Asymmetron lucayanum
+                          - Taxon_Name: Epigonichthys
+                    - Taxon_Name: Branchiostomidae
+        - Taxon_Name: Olfactores
+          Content:
+            Taxonomic_Rank: Class/Subphylum
+            Content:
+            - Taxon_Name: Tunicata
+            - Taxon_Name: Vertebrata        # had an error here!
+              Content:
+                Taxonomic_Rank: Superclass/Infraphylum
+                Content:
+                - Taxon_Name: Agnatha
+                - Taxon_Name: Gnathostomata
+                  Content:
+                    Taxonomic_Rank: Clade
+                    Content:
+                    - Taxon_Name: Eugnathostomata
+                      Content:
+                        Taxonomic_Rank: Clade
+                        Content:
+                        - Taxon_Name: Chondrichthyes
+                        - Taxon_Name: Osteichthyes
+                          Content:
+                            Taxonomic_Rank: Clade
+                            Content:
+                            - Taxon_Name: Actinopterygii
+                            - Taxon_Name: Sarcopterygii
+                              Content:
+                                Taxonomic_Rank: Clade
+                                Content:
+                                  - Taxon_Name: Actinistia
+                                  - Taxon_Name: Dipnoi
+                                  - &tetrapodomorpha
+                                    Taxon_Name: Tetrapodomorpha
+                                    Content:
+                                      Taxonomic_Rank: Superclass
+                                      Content:
+                                      - Taxon_Name: Tetrapoda
+                                        Content:
+                                          Taxonomic_Rank: Class
+                                          Content:
+                                          - Taxon_Name: Amphibia # amphibians
+                                            Content:
+                                              Taxonomic_Rank: Subclass
+                                              Content:
+                                              - Taxon_Name: Lissamphibia
+                                                Content:
+                                                  Taxonomic_Rank: Superorder/Clade
+                                                  Content:
+                                                  - Taxon_Name: Batrachia
+                                                    Content:
+                                                      Taxonomic_Rank: Clade
+                                                      Content:
+                                                      - Taxon_Name: Salientia
+                                                      - Taxon_Name: Caudata
+                                                        Content:
+                                                          Taxonomic_Rank: Order
+                                                          Content:
+                                                          - Taxon_Name: Urodela
+                                                            Content:
+                                                              Taxonomic_Rank: Suborder
+                                                              Content:
+                                                              - Taxon_Name: Cryptobranchoidea
+                                                              - Taxon_Name: Salamandroidea
+                                                              - Taxon_Name: Sirenoidea        # goes past maxRecursion limit imposed by YamlDotNet
+                                                                Content:
+                                                                  Taxonomic_Rank: Genus 
+                                                                  Content:
+                                                                  - Taxon_Name: Pseudobranchus
+                                                                  - Taxon_Name: Siren
+                                                                  
+                                                  - Taxon_Name: Gymnophiona
+                                          - Taxon_Name: Sauropsida # birds and reptiles
+                                          - &synapsida
+                                            Taxon_Name: Synapsida # mammals and mammal-like reptiles
+                                            Content:
+                                              Taxonomic_Rank: Clade
+                                              Content:
+                                              - Taxon_Name: Eupelycosauria
+                                                Content:
+                                                  Taxonomic_Rank: Clade
+                                                  Content:
+                                                  - Taxon_Name: Sphenacodontia
+                                                    Content:
+                                                      Taxonomic_Rank: Clade
+                                                      Content:
+                                                      - Taxon_Name: Sphenacodontoidea
+                                                        Content:
+                                                          Taxonomic_Rank: Order
+                                                          Content: 
+                                                          - Taxon_Name: Therapsida
+                                                            Content:
+                                                              Taxonomic_Rank: Clade
+                                                              Content:
+                                                              - Taxon_Name: Eutherapsida
+                                                                Content:
+                                                                  Taxonomic_Rank: Clade
+                                                                  Content:
+                                                                  - Taxon_Name: Neotherapsida
+                                                                    Content:
+                                                                      Taxonomic_Rank: Clade
+                                                                      Content:
+                                                                      - Taxon_Name: Theriodontia
+                                                                        Content:
+                                                                          Taxonomic_Rank: Clade
+                                                                          Content:
+                                                                          - Taxon_Name: Eutheriodontia
+                                                                            Content:
+                                                                              Taxonomic_Rank: Suborder
+                                                                              Content:
+                                                                              - Taxon_Name: Cynodontia
+                                                                                Content:
+                                                                                  Taxonomic_Rank: Clade
+                                                                                  Content:
+                                                                                    - Taxon_Name: Epicynodontia
+                                                                                      Content:
+                                                                                        Taxonomic_Rank: Infraorder
+                                                                                        Content:
+                                                                                        - Taxon_Name: Eucynodontia
+                                                                                          Content:
+                                                                                            Taxonomic_Rank: Parvorder
+                                                                                            Content:
+                                                                                            - Taxon_Name: Probainognathia
+                                                                                              Content:
+                                                                                                Taxonomic_Rank: Clade
+                                                                                                Content:
+                                                                                                - Taxon_Name: Chiniquodontoidea
+                                                                                                  Content:
+                                                                                                    Taxonomic_Rank: Clade
+                                                                                                    Content:
+                                                                                                    - Taxon_Name: Mammaliaformes
+                                                                                                      Content:
+                                                                                                        Taxonomic_Rank: Class
+                                                                                                        Content:
+                                                                                                        - Taxon_Name: Mammalia
+                                                                                                          Content:
+                                                                                                            Taxonomic_Rank: Clade
+                                                                                                            Content:
+                                                                                                            - Taxon_Name: Monotreme
+                                                                                                              Content:
+                                                                                                                Taxonomic_Rank: Suborder
+                                                                                                                Content:
+                                                                                                                - Taxon_Name: Platypoda
+                                                                                                                  Content:
+                                                                                                                    Taxonomic_Rank: Family
+                                                                                                                    Content:
+                                                                                                                    - Taxon_Name: Ornithorhynchidae
+                                                                                                                      Content:
+                                                                                                                        Taxonomic_Rank: Genus
+                                                                                                                        Content:
+                                                                                                                        - Taxon_Name: Ornithorhynchus
+                                                                                                                          Content:
+                                                                                                                            Taxonomic_Rank: Species
+                                                                                                                            Content:
+                                                                                                                            - Taxon_Name: Ornithorhynchus anatinus (platypus)
+                                                                                                                - Taxon_Name: Tachyglossa
+                                                                                                            - Taxon_Name: Theria
+                                                                                                              Content:
+                                                                                                                Taxonomic_Rank: Clade
+                                                                                                                Content:
+                                                                                                                - Taxon_Name: Eutheria
+                                                                                                                - Taxon_Name: Metatheria
+                                                                                                                  Content:
+                                                                                                                    Taxonomic_Rank: Infraclass
+                                                                                                                    Content:
+                                                                                                                    - Taxon_Name: Marsupialia
+                                                                                                                      Content:
+                                                                                                                        Taxonomic_Rank: Superorder
+                                                                                                                        Content:
+                                                                                                                        - Taxon_Name: Ameridelphia
+                                                                                                                          Content:
+                                                                                                                            Taxonomic_Rank: Order
+                                                                                                                            Content:
+                                                                                                                            - Taxon_Name: Didelphimorphia
+                                                                                                                            - Taxon_Name: Paucituberculata
+                                                                                                                              Content:
+                                                                                                                                Taxonomic_Rank: Family
+                                                                                                                                Content:
+                                                                                                                                - Taxon_Name: Caenolestidae (Shrew opossum)
+                                                                                                                                  Content:
+                                                                                                                                    Taxonomic_Rank: Genus
+                                                                                                                                    Content:
+                                                                                                                                    - Taxon_Name: Caenolestes
+                                                                                                                                    - Taxon_Name: Lestoros
+                                                                                                                                    - Taxon_Name: Rhyncholestes
+                                                                                                                                      Content:
+                                                                                                                                        Taxonomic_Rank: Species
+                                                                                                                                        Content:
+                                                                                                                                        - Taxon_Name: Long-nosed caenolestid (Rhyncholestes raphanurus)
+                                                                                                                        - Taxon_Name: Australidelphia
+                                                                                                                          Content:
+                                                                                                                            Taxonomic_Rank: Order
+                                                                                                                            Content:
+                                                                                                                            - Taxon_Name: Microbiotheria
+                                                                                                                            - Taxon_Name: Dasyuromorphia
+                                                                                                                            - Taxon_Name: Peramelemorphia
+                                                                                                                            - Taxon_Name: Notoryctemorphia
+                                                                                                                            - Taxon_Name: Diprotodontia
+                                                                                                            
+
+                                          - *synapsida
+                                          - *synapsida                                                
+                                  - *tetrapodomorpha
+                                  - *tetrapodomorpha
+                                  - *tetrapodomorpha
+                                                  
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          

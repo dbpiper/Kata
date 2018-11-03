@@ -1,0 +1,161 @@
+"Content" :
+            {
+                "Taxonomic_Rank": "Plyla/Clade",
+                "Content":
+                [
+                    {"Taxon_Name": "Bryophyta"},
+                    {
+                        "Taxon_Name": "Pteridophyta",
+                        "Content":
+                        [
+                        ]
+                    },
+                    {
+                        "Taxon_Name": "Angiosperms",
+                        "Content":
+                        {
+                            "Taxonomic_Rank": "Orders/Clade",
+                            "Content": 
+                            [
+                                {
+                                    "Taxon_Name": "Amborellales",
+                                    "Content": {
+                                        "Taxonomic_Rank": "Species",
+                                        "Content": 
+                                        [
+                                            {"Taxon_Name": "Amborella trichopoda"}
+                                        ]
+                                    }
+                                },
+                                {"Taxon_Name": "Nymphaeales"},
+                                {
+                                    "Taxon_Name": "Austrobaileyales",
+                                    "Content" :
+                                    {
+                                        "Taxonomic_Rank": "Families",
+                                        "Content":
+                                        [
+                                            {"Taxon_Name": "Austrobaileyaceae"},
+                                            {
+                                                "Taxon_Name": "Schisandraceae",
+                                                "Content": 
+                                                {
+                                                    "Taxonomic_Rank": "Genera",
+                                                    "Content":
+                                                    [
+                                                        {"Taxon_Name": "Schisandra"},
+                                                        {"Taxon_Name": "Kadsura"},
+                                                        {
+                                                            "Taxon_Name": "Illicium",
+                                                            "Content":
+                                                            {   
+                                                                "Taxonomic_Rank": "Species",
+                                                                "Content":
+                                                                [
+                                                                    {"Taxon_Name": "Illicium anisatum (Japanese star anise)"},
+                                                                    {"Taxon_Name": "Illicium floridanum (Florida anise)"},
+                                                                    {"Taxon_Name": "Illicium parviflorum (Yellow anise)"},
+                                                                    {"Taxon_Name": "Illicium verum (Star anise)"}
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {"Taxon_Name": "Trimeniaceae"}
+                                        ]
+                                    }
+                                },
+                                {"Taxon_Name": "Magnoliids"},
+                                {
+                                    "Taxon_Name": "Chloranthales",
+                                    "Content":
+                                    {
+                                        "Taxonomic_Rank": "Family",
+                                        "Content":
+                                        [
+                                            {
+                                                "Taxon_Name": "Chloranthaceae",
+                                                "Content":
+                                                {
+                                                    "Taxonomic_Rank": "Genera",
+                                                    "Content":
+                                                    [
+                                                        {"Taxon_Name": "Ascarina"},
+                                                        {"Taxon_Name": "Chloranthus"},
+                                                        {"Taxon_Name": "Hedyosmum"},
+                                                        {"Taxon_Name": "Sarcandra"}
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "Taxon_Name": "Monocotyledon",
+                                    "Content":
+                                    {
+                                        "Taxonomic_Rank": "Orders",
+                                        "Content":
+                                        [
+                                            
+                                             {"Taxon_Name": "Acorales"},
+                                             {"Taxon_Name": "Alismatales"},
+                                             {"Taxon_Name": "Petrosaviales"},
+                                             {
+                                                 "Taxon_Name": "Dioscoreales",
+                                                 "Content":
+                                                 {
+                                                    "Taxonomic_Rank": "Families",
+                                                    "Content": 
+                                                    [
+                                                        {"Taxon_Name": "Dioscoreaceae"},
+                                                        {"Taxon_Name": "Burmanniaceae"},
+                                                        {
+                                                            "Taxon_Name": "Nartheciaceae",
+                                                            "Content":
+                                                            {
+                                                                "Taxonomic_Rank": "Genera",
+                                                                "Content":
+                                                                [
+                                                                    {"Taxon_Name": "Aletris"},
+                                                                    {"Taxon_Name": "Lophiola"},
+                                                                    {
+                                                                        "Taxon_Name": "Metanarthecium",
+                                                                        "Content":
+                                                                        {
+                                                                            "Taxonomic_Rank": "Species",
+                                                                            "Content":
+                                                                            [
+                                                                                "Metanarthecium luteoviride"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {"Taxon_Name": "Narthecium"},
+                                                                    {"Taxon_Name": "Nietneria"}
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                 }
+                                             },
+                                             {"Taxon_Name": "Pandanales"},
+                                             {"Taxon_Name": "Liliales"},
+                                             {"Taxon_Name": "Asparagales"},
+                                             {"Taxon_Name": "Arecales"},
+                                             {"Taxon_Name": "Poales"},
+                                             {"Taxon_Name": "Zingiberales"},
+                                             {"Taxon_Name": "Commelinales"}
+                                        ]
+                                    }
+                                },
+                                {"Taxon_Name": "Ceratophyllales"},
+                                {"Taxon_Name": "Eudicotidae"}
+
+                            ]
+                        }
+                    },
+                    {"Taxon_Name": "Gymnosperms"}
+                ]
+            
+            }

@@ -1,0 +1,53 @@
+﻿<Window x:Class="Kata.KataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kata"
+        mc:Ignorable="d"
+        Title="KataWindow" Height="716.186" Width="800">
+    <Grid>
+        <ComboBox x:Name="ComboBox_KataType" HorizontalAlignment="Left"
+                  Margin="28,36,0,0" VerticalAlignment="Top"
+                  Width="120"
+                  SelectionChanged="ComboBoxKataType_SelectionChanged"
+                  IsEditable="True"
+                  IsReadOnly="True"
+                  Text="Kata Types"
+                  >
+            <ComboBoxItem Content="Drawabox" />
+            <ComboBoxItem Content="Music" />
+        </ComboBox>
+        <ComboBox 
+            HorizontalAlignment="Left" Margin="28,108,0,0"
+            VerticalAlignment="Top" Width="526"
+            x:Name="ComboBox_Lesson"
+            IsEditable="True"
+            IsReadOnly="True"
+            Text="Only Choose From Specific Lesson"
+            >
+        </ComboBox>
+        <Button x:Name="ButtonRandomlySelect" Content="Randomly&#x0a;Select"
+                HorizontalAlignment="Left" Margin="28,155,0,0"
+                VerticalAlignment="Top" Width="75" Height="55"
+                Click="ButtonRandomlySelect_Click" 
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Background="#00FFFF"
+                />
+        <Label Content="Selected Kata" HorizontalAlignment="Left" Margin="28,243,0,0" VerticalAlignment="Top"
+                x:Name="Label_Result"  
+               />
+        <Button Content="Resume&#x0a;Selection" HorizontalAlignment="Left" Margin="634,243,0,0" VerticalAlignment="Top" Width="75" Height="55"
+                Background="#98FB98" 
+                x:Name="Button_Resume"
+                Click="ButtonResume_Click"
+                />
+        <Button Content="Reset" HorizontalAlignment="Left" Margin="28,634,0,0" VerticalAlignment="Top" Width="75" Height="27"
+                x:Name="Button_Reset"
+                Background="#7FFFD4"
+                Click="ButtonReset_Click"
+                />
+
+    </Grid>
+</Window>
