@@ -106,7 +106,7 @@ namespace Kata.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error: could not update Species.yaml! -- .
+        ///   Looks up a localized string similar to Error: could not update Species.yaml!.
         /// </summary>
         internal static string String_SelectSpeciesError_CouldNotUpdateSpeciesYaml {
             get {

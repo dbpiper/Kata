@@ -24,9 +24,9 @@ namespace Kata
 {
     /// <inheritdoc cref="Window" />
     /// <summary>
-    /// Interaction logic for Kata.xaml
+    /// Interaction logic for KataWindow.xaml
     /// </summary>
-    public partial class Kata : Window
+    public partial class KataWindow : Window
     {
         private enum KataTypes : byte
         {
@@ -51,7 +51,7 @@ namespace Kata
 
         private bool _resuming = false;
         
-        public Kata()
+        public KataWindow()
         {
             InitializeComponent();
         }
@@ -505,11 +505,14 @@ namespace Kata
 
         private void ComboBoxKataType_SelectionChanged(object sender, EventArgs e)
         {
-            if (ComboBox_KataType.SelectedIndex == (byte)KataTypes.Music) {
-                ComboBox_Lesson.Visibility = Visibility.Hidden;
-            } else {
-                ComboBox_Lesson.Visibility = Visibility.Visible;
-                PopulateList("Configuration\\YAML\\DrawaboxKatas.yaml");
+            if (ComboBox_Lesson != null) {
+                if (ComboBox_KataType.SelectedIndex == (byte)KataTypes.Music) {
+                    ComboBox_Lesson.Visibility = Visibility.Hidden;
+                } else {
+                    ComboBox_Lesson.Visibility = Visibility.Visible;
+                    PopulateList("Configuration\\YAML\\DrawaboxKatas.yaml");
+                }
+                
             }
 
         }
