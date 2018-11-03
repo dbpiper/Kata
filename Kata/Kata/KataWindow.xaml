@@ -9,10 +9,12 @@
     <Grid>
         <ComboBox x:Name="ComboBox_KataType" HorizontalAlignment="Left"
                   Margin="28,36,0,0" VerticalAlignment="Top"
-                  Width="120" SelectedIndex="0"
+                  Width="120"
                   SelectionChanged="ComboBoxKataType_SelectionChanged"
+                  IsEditable="True"
+                  IsReadOnly="True"
+                  Text="Kata Types"
                   >
-            <ComboBoxItem Content="Kata Type" />
             <ComboBoxItem Content="Drawabox" />
             <ComboBoxItem Content="Music" />
         </ComboBox>
@@ -20,8 +22,10 @@
             HorizontalAlignment="Left" Margin="28,108,0,0"
             VerticalAlignment="Top" Width="526"
             x:Name="ComboBox_Lesson"
+            IsEditable="True"
+            IsReadOnly="True"
+            Text="Only Choose From Specific Lesson"
             >
-            <ComboBoxItem Content="Only Choose From Specific Lesson"/>
         </ComboBox>
         <Button x:Name="ButtonRandomlySelect" Content="Randomly&#x0a;Select"
                 HorizontalAlignment="Left" Margin="28,155,0,0"
@@ -31,7 +35,7 @@
                 HorizontalContentAlignment="Center"
                 Background="#00FFFF"
                 />
-        <Label Content="Selected KataWindow" HorizontalAlignment="Left" Margin="28,243,0,0" VerticalAlignment="Top"
+        <Label Content="Selected Kata" HorizontalAlignment="Left" Margin="28,243,0,0" VerticalAlignment="Top"
                 x:Name="Label_Result"  
                />
         <Button Content="Resume&#x0a;Selection" HorizontalAlignment="Left" Margin="634,243,0,0" VerticalAlignment="Top" Width="75" Height="55"
