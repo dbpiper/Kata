@@ -62,3 +62,4 @@
 61: Thermostat
 62: Toaster
 63: Shaving Cream Can
+64: Thermometer
